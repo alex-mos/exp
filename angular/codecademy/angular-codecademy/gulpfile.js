@@ -40,7 +40,7 @@ gulp.task('bs-reload', function () {
 
 // Task for `gulp` command
 
-gulp.task('default',['browser-sync'], function() {
+gulp.task('default',['less', 'browser-sync'], function() {
     gulp.watch('./less/*.less', ['less']);
     gulp.watch('*.html', ['bs-reload']);
     gulp.watch('./js/*.js', ['bs-reload']);
