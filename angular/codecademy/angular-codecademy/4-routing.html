@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
+	<link href="css/4-routing.css" rel="stylesheet" />
+
+	<!-- Include the core AngularJS library -->
+	<script src="bower_components/angular/angular.min.js"></script>
+
+	<!-- Include the AngularJS routing library -->
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
+</head>
+
+<body ng-app="GalleryApp">
+
+	<div class="header">
+		<div class="container">
+			<a href="/#/">
+				<img src="img/logo.svg" width="80" height="80"> &#12501; &#65387; &#12488; &#12501; &#65387; &#12488;
+			</a>
+		</div>
+	</div>
+
+	<div ng-view></div>
+
+
+<!-- Modules -->
+<script src="js/4-routing.js"></script>
+
+<!-- Controllers -->
+<script src="js/4-controllers/HomeController.js"></script>
+<script src="js/4-controllers/PhotoController.js"></script>
+
+<!-- Services -->
+<script src="js/4-services/photos.js"></script>
+
+</body>
+</html>
