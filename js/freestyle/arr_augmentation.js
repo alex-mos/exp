@@ -1,8 +1,20 @@
-Array.prototype.odd = function(arr) {
-	arr.push('end');
-	console.log(arr);
+// augmentation
+
+Array.prototype.odd =  function() {
+	// Функция, возвращающая новый массив, содержащий только элементы с нечётными индексами.
+	var odd = function(value, index) {
+		if ((index + 1) % 2) {
+			return value;
+		}
+	};
+
+	return this.filter(odd);
 };
 
-a = [1, 2, 3, 4];
+// usage
 
-a.odd();
+var a = [1, 2, 3, 4, 'odd', 'even'];
+
+var aOdd = a.odd();
+
+console.log(aOdd);
