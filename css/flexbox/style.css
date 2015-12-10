@@ -60,10 +60,15 @@
 }
 
 .box {
-	/*width: 300px;*/
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: auto;
+	transition: all 100ms linear;
 }
 
-
+.box:hover {
+	flex-shrink: 2;
+}
 
 
 
