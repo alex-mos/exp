@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+	plumber = require('gulp-plumber'),
 	minifycss = require('gulp-minify-css'),
 	jshint = require('gulp-jshint'),
 	stylish = require('jshint-stylish'),
@@ -17,6 +18,7 @@ var gulp = require('gulp'),
 
 gulp.task('jshint', function() {
 	gulp.src('app/scripts/**/*.js')
+		.pipe(plumber())
 		.pipe(jshint())
 		.pipe(jshint.reporter(stylish));
 });
@@ -43,19 +45,13 @@ gulp.task('clean', function() {
 });
 
 gulp.task('usemin', ['jshint'], function() {
-	return gulp.src('app/menu.html')
+	return gulp.src(['app/*.html'])
+		.pipe(plumber())
 		.pipe(usemin({
-			css: [minifycss(), rev()],
-			js: [ngannotate(), uglify(), rev()]
+			css: [minifycss, rev],
+			js: [ngannotate, uglify, rev]
 		}))
 		.pipe(gulp.dest('dist/'));
-});
-
-gulp.task('watch', ['browser-sync'], function() {
-	// Watch .js files
-	gulp.watch('{app/scripts/**/*.js,app/styles/**/*.css,app/**/*.html}', ['usemin']);
-	// Watch image files
-	gulp.watch('app/images/**/*', ['imagemin']);
 });
 
 gulp.task('browser-sync', ['default'], function() {
@@ -80,4 +76,13 @@ gulp.task('browser-sync', ['default'], function() {
 
 gulp.task('default', ['clean'],function() {
 	gulp.start('usemin', 'imagemin', 'copyfonts');
+});
+
+gulp.task('watch', ['browser-sync'], function() {
+	// Watch .js files
+	gulp.watch(['app/scripts/**/*.js', 'app/styles/**/*.css', 'app/**/*.html'], ['usemin'], function(){
+		console.log('app files changed');
+	});
+	// Watch image files
+	gulp.watch('app/images/**/*', ['imagemin']);
 });
