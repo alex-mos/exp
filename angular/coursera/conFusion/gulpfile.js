@@ -34,9 +34,9 @@ gulp.task('imagemin', function() {
 });
 
 gulp.task('copyfonts', ['clean'], function() {
-	gulp.src('./bower_components/font-awesome/fonts/**/*.{ttf,woff,eof,svg}*')
+	gulp.src('app/bower_components/font-awesome/fonts/**/*.{ttf,woff,eof,svg}*')
 		.pipe(gulp.dest('./dist/fonts'));
-	gulp.src('./bower_components/bootstrap/dist/fonts/**/*.{ttf,woff,eof,svg}*')
+	gulp.src('app/bower_components/bootstrap/dist/fonts/**/*.{ttf,woff,eof,svg}*')
 		.pipe(gulp.dest('./dist/fonts'));
 });
 
@@ -54,35 +54,34 @@ gulp.task('usemin', ['jshint'], function() {
 		.pipe(gulp.dest('dist/'));
 });
 
-gulp.task('browser-sync', ['default'], function() {
-	var files = [
-		'app/**/*.html',
-		'app/styles/**/*.css',
-		'app/scripts/**/*.js',
-		'app/images/**/*',
-		'dist/**/*'
-	];
+gulp.task('browser-sync', function() {
+	//var files = [
+	//	'app/**/*.html',
+	//	'app/styles/**/*.css',
+	//	'app/scripts/**/*.js',
+	//	'app/images/**/*'
+	//];
 
-	browserSync.init(files, {
+	browserSync.init({
 		server: {
-			baseDir: 'dist',
+			baseDir: './app',
 			index: 'menu.html'
 		}
 	});
 
-	// Watch any files in dist/, reload on change
-	gulp.watch(['dist/**']).on('change', browserSync.reload)
+	// Watch any files in app/, reload on change
+	gulp.watch(['app/**']).on('change', browserSync.reload)
 });
 
-gulp.task('default', ['clean'],function() {
+gulp.task('build', ['clean'],function() {
 	gulp.start('usemin', 'imagemin', 'copyfonts');
 });
 
-gulp.task('watch', ['browser-sync'], function() {
-	// Watch .js files
-	gulp.watch(['app/scripts/**/*.js', 'app/styles/**/*.css', 'app/**/*.html'], ['usemin'], function(){
-		console.log('app files changed');
-	});
-	// Watch image files
-	gulp.watch('app/images/**/*', ['imagemin']);
-});
+//gulp.task('watch', ['browser-sync'], function() {
+//	// Watch .js files
+//	gulp.watch(['app/scripts/**/*.js', 'app/styles/**/*.css', 'app/**/*.html'], ['usemin'], function(){
+//		console.log('app files changed');
+//	});
+//	// Watch image files
+//	gulp.watch('app/images/**/*', ['imagemin']);
+//});

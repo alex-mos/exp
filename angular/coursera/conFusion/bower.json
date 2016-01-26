@@ -1,8 +1,8 @@
 {
   "name": "conFusion",
   "version": "1.0.0",
-  "description": "Website for an awesome restaurant",
-  "main": "index.html",
+  "description": "coursera lessons test",
+  "main": "app/menu.html",
   "moduleType": [],
   "keywords": [
     "conFusion",
@@ -13,7 +13,7 @@
     "Jogesh Muppala"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/alex-mos/exp",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -25,5 +25,6 @@
     "bootstrap": "~3.3.5",
     "font-awesome": "~4.4.0",
     "angular": "~1.4.7"
-  }
+  },
+  "private": true
 }
