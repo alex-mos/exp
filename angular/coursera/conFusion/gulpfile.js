@@ -55,13 +55,6 @@ gulp.task('usemin', ['jshint'], function() {
 });
 
 gulp.task('browser-sync', function() {
-	//var files = [
-	//	'app/**/*.html',
-	//	'app/styles/**/*.css',
-	//	'app/scripts/**/*.js',
-	//	'app/images/**/*'
-	//];
-
 	browserSync.init({
 		server: {
 			baseDir: './app',
@@ -76,12 +69,3 @@ gulp.task('browser-sync', function() {
 gulp.task('build', ['clean'],function() {
 	gulp.start('usemin', 'imagemin', 'copyfonts');
 });
-
-//gulp.task('watch', ['browser-sync'], function() {
-//	// Watch .js files
-//	gulp.watch(['app/scripts/**/*.js', 'app/styles/**/*.css', 'app/**/*.html'], ['usemin'], function(){
-//		console.log('app files changed');
-//	});
-//	// Watch image files
-//	gulp.watch('app/images/**/*', ['imagemin']);
-//});
