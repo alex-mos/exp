@@ -114,3 +114,7 @@ body {
 	position: absolute;
 	right: 0;
 }
+
+.form-control-feedback {
+	right: 15px;
+}

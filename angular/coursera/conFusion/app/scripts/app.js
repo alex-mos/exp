@@ -84,18 +84,59 @@ app.controller('MenuController', ['$scope', function($scope) {
 
 }]);
 
-app.controller('ContactController', ['$scope', function($scope) {
+app.controller('ContactController', ['$scope', function ($scope) {
 
 	$scope.feedback = {
-		mychannel: '',
-		firstName: '',
-		lastName: '',
+		mychannel: "",
+		firstName: "",
+		lastName: "",
 		agree: false,
-		email: ''
+		email: ""
 	};
+
+	$scope.channels = [
+		{
+			value: "tel",
+			label: "Tel."
+		},
+		{
+			value: "Email",
+			label: "Email"
+		}
+	];
+
+	$scope.invalidChannelSelection = false;
 
 }]);
 
-app.controller('FeedbackController', ['$scope', function($scope) {
+app.controller('FeedbackController', ['$scope', function ($scope) {
+
+	$scope.sendFeedback = function () {
+
+		if ($scope.feedback.agree && $scope.feedback.mychannel === '') {
+
+			$scope.invalidChannelSelection = true;
+
+			console.log('incorrect');
+
+		} else {
+
+			console.log($scope.feedback);
+
+			$scope.invalidChannelSelection = false;
+
+			$scope.feedback = {
+				mychannel: "",
+				firstName: "",
+				lastName: "",
+				agree: false,
+				email: ""
+			};
+
+			$scope.feedback.mychannel = "";
+
+			$scope.feedbackForm.$setPristine();
+		}
+	};
 
 }]);

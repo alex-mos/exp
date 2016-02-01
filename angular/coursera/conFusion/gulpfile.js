@@ -69,3 +69,7 @@ gulp.task('browser-sync', function() {
 gulp.task('build', ['clean'],function() {
 	gulp.start('usemin', 'imagemin', 'copyfonts');
 });
+
+gulp.task('default', function() {
+	gulp.start('browser-sync');
+});
