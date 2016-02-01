@@ -140,3 +140,9 @@ app.controller('FeedbackController', ['$scope', function ($scope) {
 	};
 
 }]);
+
+app.controller('CommentController', ['$scope', function($scope) {
+
+
+
+}]);

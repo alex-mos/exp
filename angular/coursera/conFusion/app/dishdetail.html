@@ -49,8 +49,6 @@
 		</div>
 
 		<div class="col-xs-9 col-xs-offset-1">
-			<!--<p>Put the comments here</p>-->
-
 			<h4>
 				Customer Comments&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="order-input" class="order">Sort by:</label>
@@ -62,6 +60,23 @@
 				<p>{{ comment.comment }}</p>
 				<footer>{{ comment.author }}, {{ comment.date | date }}</footer>
 			</blockquote>
+		</div>
+	</div>
+
+	<div class="row" ng-controller="CommentController">
+		<div class="col-xs-12">
+			<form class="form-horizontal" name="commentForm">
+				<div class="form-group">
+					<label for="fullname" class="col-xs-12 col-sm-2">Your name</label>
+					<div class="col-xs-12 col-sm-10">
+						<input id="fullname" name="fullname" placeholder="Enter Your Name" ng-model="fullName" required />
+					</div>
+				</div>
+
+				<div class="form-group">
+					button.
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
