@@ -71,11 +71,13 @@
 		</div>
 
 		<div class="col-xs-12 col-sm-9" ng-controller="FeedbackController">
-			<form class="form-horizontal" role="form">
+			<form class="form-horizontal" role="form" ng-submit="sendFeedback()" novalidate>
 				<div class="form-group">
 					<label for="firstname" class="col-sm-2 control-label">First Name</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First Name" ng-model="feedback.firstName" required>
+
+						<span >Your f</span>
 					</div>
 				</div>
 
@@ -145,7 +147,7 @@
 
 			<h3>Your Current Feedback</h3>
 
-			<div> {{ feedback.firstName }}  {{ feedback.lastName | uppercase }}</div>
+			<div>{{ feedback.firstName }}  {{ feedback.lastName | uppercase }}</div>
 
 			<div>Tel: ({{ feedback.tel.areacode }}) {{ feedback.tel.number }}</div>
 

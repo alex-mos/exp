@@ -92,7 +92,7 @@ app.controller('ContactController', ['$scope', function($scope) {
 		lastName: '',
 		agree: false,
 		email: ''
-	}
+	};
 
 }]);
 

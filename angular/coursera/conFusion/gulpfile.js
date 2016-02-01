@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
-	minifycss = require('gulp-minify-css'),
+	cssnano = require('gulp-cssnano'),
 	jshint = require('gulp-jshint'),
 	stylish = require('jshint-stylish'),
 	uglify = require('gulp-uglify'),
@@ -48,7 +48,7 @@ gulp.task('usemin', ['jshint'], function() {
 	return gulp.src(['app/*.html'])
 		.pipe(plumber())
 		.pipe(usemin({
-			css: [minifycss, rev],
+			css: [cssnano, rev],
 			js: [ngannotate, uglify, rev]
 		}))
 		.pipe(gulp.dest('dist/'));
