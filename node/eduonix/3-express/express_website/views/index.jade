@@ -1,5 +1,25 @@
 extends layout
 
 block content
-	h1= title
-	p Welcome to #{title}
+	.jumbotron
+		.container
+			h1 How May I Help You?
+			p Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+			btn.btn-primary.btn-lg(href='#') Learn More »
+
+	.row
+		.container
+			.col-xs-12.col-md-4
+				h3 About us
+				p Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+				a(href='').btn.btn-default View details
+
+			.col-xs-12.col-md-4
+				h3 Services
+				p Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+				a(href='').btn.btn-default View details
+
+			.col-xs-12.col-md-4
+				h3 Get in touch
+				p Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+				a(href='').btn.btn-default View details
