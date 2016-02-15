@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var multer = require('multer'); // file uploads
 var flash = require('connect-flash');
 var expressValidator = require('express-validator');
 var mongo = require('mongodb');
@@ -23,9 +22,6 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
-// Handle file uploads
-//app.use(multer({dest: './uploads'}));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

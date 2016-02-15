@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+var multer = require('multer');
+var upload = multer({dest: './uploads'});
+
 /* GET users listing. */
 router.get('/', function (req, res, next) {
 	res.send('respond with a resource');
@@ -10,6 +13,72 @@ router.get('/register', function (req, res, next) {
 	res.render('register', {
 		title: 'Register'
 	})
+});
+
+router.post('/register', upload.fields([{ name: 'profileimage', maxCount: 1 }]), function(req, res, next) {
+	var name = req.body.name;
+	var email = req.body.email;
+	var username = req.body.username;
+	var password = req.body.password;
+	var password2 = req.body.password2;
+
+	console.log('image: ' + req.files.profileimage);
+
+	// Check for image field
+	if (req.files.profileimage) {
+		console.log('Uploading files...');
+
+		var profileImageOriginalName = req.files.profileimage.originalname;
+		var profileImageName = req.files.profileimage.name;
+		var profileImageMime = req.files.profileimage.mimetype;
+		var profileImagePath = req.files.profileimage.path;
+		var profileImageExt  = req.files.profileimage.extension;
+		var profileImageSize = req.files.profileimage.size;
+	} else {
+		// Set a default image
+		var profileImageName = 'noimage.png';
+	}
+
+	// Form validation
+	req.checkBody('name', 'Назовите своё имя').notEmpty();
+	req.checkBody('email', 'Куда писать емейлы?').notEmpty();
+	req.checkBody('email', 'Не похоже на адрес').isEmail();
+	req.checkBody('username', 'Не похоже на адрес').notEmpty();
+	req.checkBody('password', 'Без пароля вам не пройти').notEmpty();
+	req.checkBody('password2', 'Вы ошиблись в своём пароле').equals(req.body.password);
+
+	var errors = req.validationErrors();
+
+	if (errors) {
+		res.render('register', {
+			errors: errors,
+			name: name,
+			email: email,
+			username: username,
+			password: password,
+			password2: password2
+		});
+	} else {
+		var newUser = new User({
+			name: name,
+			email: email,
+			username: username,
+			password: password,
+			profileimage: profileImageName
+		});
+
+		//User.createUser(newUser, function (err, user) {
+		//	if (err) throw err;
+		//	console.log(user);
+		//});
+
+		// Success message
+		res.flash('success', 'Вы зарегестрированы, и можете войти');
+
+		res.location('/');
+		res.redirect('/');
+	}
+
 });
 
 router.get('/login', function (req, res, next) {
