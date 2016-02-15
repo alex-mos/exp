@@ -6,16 +6,22 @@ var User = require('../models/user');
 var multer = require('multer');
 var upload = multer({dest: '../uploads'});
 
+
+
 /* GET users listing. */
 router.get('/', function (req, res, next) {
 	res.send('respond with a resource');
 });
+
+
 
 router.get('/register', function (req, res, next) {
 	res.render('register', {
 		title: 'Register'
 	})
 });
+
+
 
 router.post('/register', upload.fields([{ name: 'profileimage', maxCount: 1 }]), function(req, res, next) {
 	var name = req.body.name;
@@ -25,7 +31,6 @@ router.post('/register', upload.fields([{ name: 'profileimage', maxCount: 1 }]),
 	var password2 = req.body.password2;
 
 	// Check for image field
-	//console.log('req.files.profileimage.filename: ' + req.files.profileimage.filename);
 
 	if (req.files.profileimage) {
 		console.log('Uploading files...');
