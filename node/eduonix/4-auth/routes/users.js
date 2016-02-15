@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var User = require('../models/user');
+
 var multer = require('multer');
 var upload = multer({dest: './uploads'});
 
@@ -67,13 +69,14 @@ router.post('/register', upload.fields([{ name: 'profileimage', maxCount: 1 }]),
 			profileimage: profileImageName
 		});
 
-		//User.createUser(newUser, function (err, user) {
-		//	if (err) throw err;
-		//	console.log(user);
-		//});
+		// Create User
+		User.createUser(newUser, function (err, user) {
+			if (err) throw err;
+			console.log(user);
+		});
 
 		// Success message
-		res.flash('success', 'Вы зарегестрированы, и можете войти');
+		//res.flash('success', 'Вы зарегестрированы, и можете войти');
 
 		res.location('/');
 		res.redirect('/');
