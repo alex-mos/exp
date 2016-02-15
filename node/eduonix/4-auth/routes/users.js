@@ -4,7 +4,7 @@ var router = express.Router();
 var User = require('../models/user');
 
 var multer = require('multer');
-var upload = multer({dest: './uploads'});
+var upload = multer({dest: '../uploads'});
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -24,18 +24,18 @@ router.post('/register', upload.fields([{ name: 'profileimage', maxCount: 1 }]),
 	var password = req.body.password;
 	var password2 = req.body.password2;
 
-	console.log('image: ' + req.files.profileimage);
-
 	// Check for image field
+	//console.log('req.files.profileimage.filename: ' + req.files.profileimage.filename);
+
 	if (req.files.profileimage) {
 		console.log('Uploading files...');
 
-		var profileImageOriginalName = req.files.profileimage.originalname;
-		var profileImageName = req.files.profileimage.name;
-		var profileImageMime = req.files.profileimage.mimetype;
-		var profileImagePath = req.files.profileimage.path;
-		var profileImageExt  = req.files.profileimage.extension;
-		var profileImageSize = req.files.profileimage.size;
+		var profileImageOriginalName = req.files.profileimage[0].originalname;
+		var profileImageName = req.files.profileimage[0].filename;
+		var profileImageMime = req.files.profileimage[0].mimetype;
+		var profileImagePath = req.files.profileimage[0].path;
+		var profileImageExt  = req.files.profileimage[0].extension;
+		var profileImageSize = req.files.profileimage[0].size;
 	} else {
 		// Set a default image
 		var profileImageName = 'noimage.png';
@@ -66,7 +66,7 @@ router.post('/register', upload.fields([{ name: 'profileimage', maxCount: 1 }]),
 			email: email,
 			username: username,
 			password: password,
-			profileimage: profileImageName
+			profileImage: profileImageName
 		});
 
 		// Create User
