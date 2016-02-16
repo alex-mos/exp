@@ -1,15 +1,16 @@
 var express = require('express');
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var session = require('express-session');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash');
 var expressValidator = require('express-validator');
+
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connection;
