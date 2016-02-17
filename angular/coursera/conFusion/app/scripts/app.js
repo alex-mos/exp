@@ -2,6 +2,10 @@
 
 var app = angular.module('confusionApp', []);
 
+
+
+/*** Menu page ***/
+
 app.controller('MenuController', ['$scope', function($scope) {
 
 	$scope.tab = 1;
@@ -84,7 +88,9 @@ app.controller('MenuController', ['$scope', function($scope) {
 
 }]);
 
-/* Contact Us page */
+
+
+/*** Contact Us page ***/
 
 app.controller('ContactController', ['$scope', function ($scope) {
 
@@ -110,6 +116,8 @@ app.controller('ContactController', ['$scope', function ($scope) {
 	$scope.invalidChannelSelection = false;
 
 }]);
+
+
 
 app.controller('FeedbackController', ['$scope', function ($scope) {
 
@@ -143,7 +151,9 @@ app.controller('FeedbackController', ['$scope', function ($scope) {
 
 }]);
 
-/* Dish Detail page */
+
+
+/*** Dish Detail page ***/
 
 app.controller('dishDetailController', function () {
 
@@ -187,7 +197,6 @@ app.controller('dishDetailController', function () {
 				author: "25 Cent",
 				date: "2011-12-02T17:57:28.556094Z"
 			}
-
 		]
 	};
 
