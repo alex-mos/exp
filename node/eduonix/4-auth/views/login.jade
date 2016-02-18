@@ -4,9 +4,15 @@ block content
 	h1 Log In
 
 	form(method='post', action='/users/login')
+
+		if errors
+			ul.errors
+				each error, i in errors
+					li.alert.alert-danger #{ error.msg }
+
 		.form-group
 			label Username
-			input.form-control(name='username', type = 'text')
+			input.form-control(name='username', type='text')
 		.form-group
 			label Password
 			input.form-control(name='password', type='password')

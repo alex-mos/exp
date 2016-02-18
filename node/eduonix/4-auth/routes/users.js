@@ -6,6 +6,7 @@ var User = require('../models/user');
 var multer = require('multer');
 var upload = multer({dest: '../uploads'});
 
+var passport = require('passport');
 
 
 router.get('/', function (req, res, next) {
@@ -95,6 +96,38 @@ router.get('/login', function (req, res, next) {
 		title: 'Log In'
 	})
 });
+
+
+
+router.post(
+	'/login',
+	passport.authentificate('local', {
+		successRedirect: '/',
+		failureRedirect: '/login',
+		failureFlash: 'Invalid username or password'
+	}),
+	function(req, res) {
+		console.log('Autentification success');
+	}
+);
+
+	//var username = req.body.username;
+	//var password = req.body.password;
+	//
+	//req.checkBody('username', 'Введите свой юзернейм').notEmpty();
+	//req.checkBody('password', 'Введите пароль').notEmpty();
+	//
+	//var errors = req.validationErrors();
+	//
+	//if (errors) {
+	//	res.render('login', {
+	//		errors: errors,
+	//		username: username
+	//	});
+	//} else {
+	//
+	//}
+//});
 
 
 
