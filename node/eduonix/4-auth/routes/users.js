@@ -85,7 +85,7 @@ router.post('/register', upload.fields([{ name: 'profileimage', maxCount: 1 }]),
 		});
 
 		// Success message
-		req.flash('success', 'Вы зарегестрированы, и можете войти');
+		req.flash('alert alert-success', 'Вы зарегистрированы, и можете войти');
 
 		res.location('/');
 		res.redirect('/');
@@ -140,21 +140,22 @@ passport.use(new LocalStrategy(
 router.post(
 	'/login',
 	passport.authenticate('local', {
-		successRedirect: '/',
-		failureRedirect: '/users/login'
-		//failureFlash: 'Invalid username or password'
+		failureRedirect: '/users/login',
+		failureFlash: 'Invalid username or password'
 	}),
 	function(req, res) {
 		console.log('*** Autentification success ***');
-		//req.flash('success', 'You are logged in.');
-		//res.redirect('/');
+		req.flash('alert alert-success', 'You are logged in.');
+		res.redirect('/');
 	}
 );
 
 
 
-router.get('/logout', function (req, res, next) {
-	res.send('logout')
+router.get('/logout', function (req, res) {
+	req.logout;
+	req.flash('alert alert-success', 'You have logged out.');
+	res.redirect('/users/login');
 });
 
 

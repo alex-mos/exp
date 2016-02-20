@@ -29,6 +29,7 @@ html
 						li
 							a(href='/users/logout') Logout
 		.container
+			!= messages()
 			block content
 
 		script(src='/bower_components/jquery/dist/jquery.min.js')
