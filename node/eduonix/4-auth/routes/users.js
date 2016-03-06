@@ -153,7 +153,7 @@ router.post(
 
 
 router.get('/logout', function (req, res) {
-	req.logout;
+	req.logout();
 	req.flash('alert alert-success', 'You have logged out.');
 	res.redirect('/users/login');
 });
