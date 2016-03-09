@@ -113,10 +113,7 @@ app.controller('FeedbackController', ['$scope', function ($scope) {
 
 app.controller('DishDetailController', ['$scope', 'menuFactory', function ($scope, menuFactory) {
 
-	var dish = menuFactory.getDish(0);
-
-	$scope.dish = dish;
-
+	$scope.dish = menuFactory.getDish(3);
 
 }]);
 
