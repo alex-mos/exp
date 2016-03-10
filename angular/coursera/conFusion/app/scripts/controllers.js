@@ -8,29 +8,29 @@ app.controller('MenuController', ['$scope', 'menuFactory', function($scope, menu
 
 	$scope.dishes = menuFactory.getDishes();
 
-	$scope.isSelected = function(checkTab) {
-		return ($scope.tab === checkTab);
-	};
-
-	$scope.toggleDetails = function() {
+	$scope.toggleDetails = function () {
 		$scope.showDetails = !$scope.showDetails;
 	};
 
-	$scope.select = function(setTab) {
+	$scope.isSelected = function (checkTab) {
+		return ($scope.tab === checkTab);
+	};
+
+	$scope.select = function (setTab) {
 		$scope.tab = setTab;
 
-		switch(setTab) {
+		switch (setTab) {
 			case 2:
-				$scope.filtText = "appetizer";
+				$scope.filtText = 'appetizer';
 				break;
 			case 3:
-				$scope.filtText = "mains";
+				$scope.filtText = 'mains';
 				break;
 			case 4:
-				$scope.filtText = "dessert";
+				$scope.filtText = 'dessert';
 				break;
 			default:
-				$scope.filtText = "";
+				$scope.filtText = '';
 				break;
 		}
 	};

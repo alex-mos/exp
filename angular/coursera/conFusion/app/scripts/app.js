@@ -6,13 +6,16 @@ app.config(function ($routeProvider) {
 			templateUrl: 'contactus.html',
 			controller: 'ContactController'
 		})
+
 		.when('/menu', {
 			templateUrl: 'menu.html',
 			controller: 'MenuController'
 		})
+
 		.when('/menu/:id', {
 			templateUrl: 'dishdetail.html',
 			controller: 'DishDetailController'
 		})
+
 		.otherwise('/menu');
 });
