@@ -1,9 +1,3 @@
-"use strict";
-
-//var app = angular.module('confusionApp');
-
-
-
 /*** Menu page ***/
 
 app.controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
@@ -40,7 +34,6 @@ app.controller('MenuController', ['$scope', 'menuFactory', function($scope, menu
 				break;
 		}
 	};
-
 
 }]);
 
@@ -118,12 +111,11 @@ app.controller('DishDetailController', ['$scope', 'menuFactory', function ($scop
 }]);
 
 
+
 app.controller('CommentController', ['$scope', function($scope) {
 
-	$scope.sendComment = function() {
-
+	$scope.sendComment = function () {
 		$scope.commentForm.$setPristine();
-
 	}
 
 }]);

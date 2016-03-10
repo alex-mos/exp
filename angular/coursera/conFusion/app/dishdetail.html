@@ -5,45 +5,35 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head
-		 content must come *after* these tags -->
 	<title>Ristorante Con Fusion: Menu</title>
 	<!-- Bootstrap -->
 	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="styles/bootstrap-social.css" rel="stylesheet">
 	<link href="styles/mystyles.css" rel="stylesheet">
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
 </head>
 
 <body>
 
 <div class="container">
-	<div class="row row-content" ng-controller="DishDetailController as dishCtrl">
+	<div class="row row-content" ng-controller="DishDetailController">
 		<div class="col-xs-12">
 			<!--<p>Put the dish details here</p>-->
 			<div class="media">
 				<div class="media-left media-middle">
 					<a href="#">
-						<img ng-src="{{ dishCtrl.dish.image }}" alt="" class="media-object img-thumbnail"/>
+						<img ng-src="{{ dish.image }}" alt="" class="media-object img-thumbnail"/>
 					</a>
 				</div>
 
 				<div class="media-body">
 					<h2 class="media-heading">
-						{{ dishCtrl.dish.name }}
-						<span class="label label-danger">{{ dishCtrl.dish.label }}</span>
-						<span class="badge">{{ dishCtrl.dish.price | currency }}</span>
+						{{ dish.name }}
+						<span class="label label-danger">{{ dish.label }}</span>
+						<span class="badge">{{ dish.price | currency }}</span>
 					</h2>
 
-					<p>{{ dishCtrl.dish.description }}</p>
+					<p>{{ dish.description }}</p>
 				</div>
 			</div>
 		</div>
@@ -52,10 +42,10 @@
 			<h4>
 				Customer Comments&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="order-input" class="order">Sort by:</label>
-				<input type="text" id="order-input" ng-model="dishCtrl.order"/>
+				<input type="text" id="order-input" ng-model="order"/>
 			</h4>
 
-			<blockquote ng-repeat="comment in dishCtrl.dish.comments | orderBy: dishCtrl.order">
+			<blockquote ng-repeat="comment in dish.comments | orderBy: order">
 				<p>{{ comment.rating }} Stars</p>
 				<p>{{ comment.comment }}</p>
 				<footer>{{ comment.author }}, {{ comment.date | date }}</footer>
@@ -136,8 +126,8 @@
 
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="scripts/app.js"></script>
-<script src="scripts/controllers.js"></script>
 <script src="scripts/services.js"></script>
+<script src="scripts/controllers.js"></script>
 
 </body>
 </html>
