@@ -1,6 +1,6 @@
 "use strict";
 
-/* My */
+/*** My ***/
 
 //class Person {
 //	constructor(name, age) {
@@ -16,7 +16,7 @@
 /*** Best ***/
 
 class Person {
-	constructor(name,age) {
+	constructor(name, age) {
 		this.name = name;
 		this.age = age;
 	}
