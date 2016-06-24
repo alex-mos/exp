@@ -1,7 +1,5 @@
 const mongo = require('mongodb').MongoClient;
 
-const minAge = Number(process.argv[2]);
-
 const url = 'mongodb://localhost:27017/learnyoumongo';
 
 mongo.connect(url, function (err, db) {
@@ -22,3 +20,8 @@ mongo.connect(url, function (err, db) {
 
 
 
+class dbController {
+
+  get
+
+}

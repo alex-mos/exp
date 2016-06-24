@@ -1,0 +1,21 @@
+{
+  "name": "db-class",
+  "version": "1.0.0",
+  "description": "simple mongo app with classes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "-"
+  },
+  "author": "alexander mospan",
+  "license": "ISC",
+  "devDependencies": {
+    "mongodb": "^2.1.18"
+  },
+  "dependencies": {
+    "mongodb": "^2.1.18"
+  }
+}
