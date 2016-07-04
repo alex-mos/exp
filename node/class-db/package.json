@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "mongodb": "^2.1.18",
+    "node-uuid": "^1.4.7",
     "ws": "^1.1.1"
   },
   "eslintConfig": {
