@@ -1,5 +1,3 @@
-'use strict';
-
 var triangle = require('./triangle');
 
 triangle.area(30, 4, function(err, area) {

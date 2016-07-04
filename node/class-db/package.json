@@ -4,7 +4,8 @@
   "description": "simple mongo app with classes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -13,9 +14,15 @@
   "author": "alexander mospan",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-config-google": "^0.6.0",
     "mongodb": "^2.1.18"
   },
   "dependencies": {
-    "mongodb": "^2.1.18"
+    "mongodb": "^2.1.18",
+    "ws": "^1.1.1"
+  },
+  "eslintConfig": {
+    "extends": "google"
   }
 }

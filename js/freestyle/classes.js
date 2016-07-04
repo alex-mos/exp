@@ -17,9 +17,7 @@ const square = new Polygon(10, 10);
 
 console.log(`square area: ${square.area}`);
 
-
 /** Static methods **/
-
 class Point {
   constructor(x, y) {
     this.x = x;
@@ -56,7 +54,6 @@ class Dog extends Animal {
     return `${this.name} barks.`;
   }
 }
-
 
 /** Super class call **/
 
