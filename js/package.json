@@ -1,15 +1,21 @@
 {
-	"name": "js_experiments",
-	"description": "js experiments",
-	"main": "index.js",
-	"dependencies": {
-	},
-	"devDependencies": {
-		"ava": "^0.14.0"
-	},
-	"scripts": {
-		"test": "ava"
-	},
-	"author": "alexander mospan",
-	"license": "ISC"
+  "name": "js_experiments",
+  "description": "js experiments",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^0.14.0",
+    "eslint": "^2.13.1",
+    "eslint-config-google": "^0.6.0"
+  },
+  "eslintConfig": {
+    "extends": "google"
+
+  },
+  "scripts": {
+    "test": "ava",
+    "lint": "eslint ."
+  },
+  "author": "alexander mospan",
+  "license": "ISC"
 }

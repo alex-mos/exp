@@ -1,75 +1,70 @@
-"use strict";
-
 class Polygon {
-	constructor (height, width) {
-		this.height = height;
-		this.width = width;
-	}
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
 
-	get area() {
-		return this.calcArea();
-	}
+  get area() {
+    return this.calcArea();
+  }
 
-	calcArea() {
-		return this.height * this.width;
-	}
+  calcArea() {
+    return this.height * this.width;
+  }
 }
 
 const square = new Polygon(10, 10);
 
-console.log('square area: ' + square.area);
+console.log(`square area: ${square.area}`);
 
-
-/*** Static methods ***/
-
+/** Static methods **/
 class Point {
-	constructor (x, y) {
-		this.x = x;
-		this.y = y;
-	}
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
 
-	static distance (a, b) {
-		const dx = a.x - b.x;
-		const dy = a.y - b.y;
+  static distance(a, b) {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
 
-		return Math.sqrt(dx * dx + dy * dy);
-	}
+    return Math.sqrt(dx * dx + dy * dy);
+  }
 }
 
 const p1 = new Point(5, 5);
 const p2 = new Point(10, 10);
 
-console.log('point distance: ' + Point.distance(p1, p2));
+console.log(`point distance: ${Point.distance(p1, p2)}`);
 
-/*** Extends ***/
+/** Extends **/
 
 class Animal {
-	constructor (name) {
-		this.name = name;
-	}
+  constructor(name) {
+    this.name = name;
+  }
 
-	speak () {
-		console.log(this.name + ' makes a noise.');
-	}
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
 }
 
 class Dog extends Animal {
-	speak () {
-		return this.name + ' barks.';
-	}
+  speak() {
+    return `${this.name} barks.`;
+  }
 }
 
-
-/*** Super class call ***/
+/** Super class call **/
 
 class Lion extends Animal {
-	speak () {
-		super.speak(); // Вызов функции родительского класса.
-		return this.name + ' roars.';
-	}
+  speak() {
+    super.speak(); // Вызов функции родительского класса.
+    return `${this.name} roars.`;
+  }
 }
 
-var simba = new Lion('Simba');
+const simba = new Lion('Simba');
 
 console.log(simba.speak());
 
