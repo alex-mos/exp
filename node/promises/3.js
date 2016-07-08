@@ -1,13 +1,11 @@
 var promise = new Promise(function (fulfill, reject) {
 	setTimeout(function () {
-		var error = {};
-		error.message = 'REJECTED!';
-		reject(error);
+		// var error = new Error();
+		// error.message = 'REJECTED!';
+		reject(new Error('REJECTED!'));
 	}, 300);
-}).then(function (error) {
-	onReject(error);
-});
+}).then(null, onReject);
 
-var onReject = function (error) {
+function onReject(error) {
 	console.log(error.message);
-};
+}
