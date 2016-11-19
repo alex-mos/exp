@@ -1,0 +1,66 @@
+.defined-icon {
+  display: none;
+}
+
+
+.badge {
+  width: 200px;
+  height: auto;
+}
+
+.badge-circle {
+    fill: white;
+    stroke: #008B6F;
+    stroke-width: 7px;
+}
+
+.badge-triangle {
+    fill: #008B6F;
+    stroke: black;
+    stroke-width: 2px;
+}
+
+.badge-line {
+    stroke: black;
+    stroke-width: 5px;
+}
+
+.badge-text {
+    font-family: Arial;
+    font-size: 60px;
+    font-weight: bold;
+    fill: white;
+    stroke: black;
+    stroke-width: 3px;
+    text-anchor: middle;
+}
+
+.triforce-1 {
+    transform: translate(45px, 67px);
+}
+
+.triforce-2 {
+    transform: translate(198px, 67px);
+}
+
+.triforce-3 {
+    transform: translate(145px, 244px) rotate(180deg);
+}
+
+.triforce-item {
+    fill: #59BFC6;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+
+.roads {
+  width: 300px;
+  height: auto;
+}
+
+.roads path {
+  fill: white;
+  stroke: black;
+  stroke-width: 1px;
+}
