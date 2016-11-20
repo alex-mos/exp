@@ -71,7 +71,8 @@
 	    var _this = _possibleConstructorReturn(this, (CommentBox.__proto__ || Object.getPrototypeOf(CommentBox)).call(this));
 	
 	    _this.state = {
-	      showComments: false
+	      showComments: false,
+	      comments: [{ id: 1, author: 'Morgan McCircuit', body: 'Great picture!' }, { id: 2, author: 'Bending Bender', body: 'Exellent stuff' }]
 	    };
 	    return _this;
 	  }
@@ -79,27 +80,8 @@
 	  _createClass(CommentBox, [{
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-	
-	      // функция, возвращающая комменты в виде массива реактовских компонентов.
-	      this._getComments = function () {
-	        var commentList = [{ id: 1, author: 'Morgan McCircuit', body: 'Great picture!' }, { id: 2, author: 'Bending Bender', body: 'Exellent stuff' }];
-	
-	        return commentList.map(function (comment) {
-	          // Превращаем каждый объект в компонент.
-	          return React.createElement(Comment, { author: comment.author, body: comment.body, key: comment.id });
-	        });
-	      };
-	
 	      // записываем массив комонентов с комментариями в переменную.
 	      var comments = this._getComments();
-	
-	      // Функция, меняющая стейт, по которому показывается блок комментариев.
-	      this._handleClick = function () {
-	        _this2.setState({
-	          showComments: !_this2.state.showComments
-	        });
-	      };
 	
 	      // Условие, по которому показывается блок комментариев
 	      var commentNodes = void 0;
@@ -112,7 +94,6 @@
 	      }
 	
 	      var buttonText = 'Show comments';
-	
 	      if (this.state.showComments) {
 	        buttonText = 'Hide comments';
 	      }
@@ -126,6 +107,7 @@
 	          null,
 	          'Comments'
 	        ),
+	        React.createElement(CommentForm, { addComment: this._addComment.bind(this) }),
 	        React.createElement(CommentQuantity, { count: comments.length }),
 	        React.createElement(
 	          'button',
@@ -134,6 +116,46 @@
 	        ),
 	        commentNodes
 	      );
+	    }
+	
+	    // Функция, меняющая стейт, по которому показывается блок комментариев.
+	
+	  }, {
+	    key: '_handleClick',
+	    value: function _handleClick() {
+	      this.setState({
+	        showComments: !this.state.showComments
+	      });
+	    }
+	
+	    // Функция, возвращающая комменты в виде массива реактовских компонентов.
+	
+	  }, {
+	    key: '_getComments',
+	    value: function _getComments() {
+	      return this.state.comments.map(function (comment) {
+	        return React.createElement(Comment, {
+	          author: comment.author,
+	          body: comment.body,
+	          key: comment.id }) // Превращаем каждый объект в компонент.
+	        ;
+	      });
+	    }
+	
+	    // Функция, отправляющая содержимое формы комментария в массив комментариев
+	
+	  }, {
+	    key: '_addComment',
+	    value: function _addComment(author, body) {
+	      var comment = {
+	        id: this.state.comments.length + 1,
+	        author: author,
+	        body: body
+	      };
+	
+	      this.setState({
+	        comments: this.state.comments.concat([comment])
+	      });
 	    }
 	  }]);
 	
@@ -183,11 +205,74 @@
 	  return CommentQuantity;
 	}(React.Component);
 	
+	// Форма добавления нового комментария
+	
+	
+	var CommentForm = function (_React$Component3) {
+	  _inherits(CommentForm, _React$Component3);
+	
+	  function CommentForm() {
+	    _classCallCheck(this, CommentForm);
+	
+	    return _possibleConstructorReturn(this, (CommentForm.__proto__ || Object.getPrototypeOf(CommentForm)).apply(this, arguments));
+	  }
+	
+	  _createClass(CommentForm, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this4 = this;
+	
+	      return React.createElement(
+	        'form',
+	        { className: 'CommentForm', onSubmit: this._handleSubmit.bind(this) },
+	        React.createElement(
+	          'label',
+	          null,
+	          'Join the discussion'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'comment-form-fields' },
+	          React.createElement('input', { placeholder: 'Name', ref: function ref(input) {
+	              return _this4._author = input;
+	            } }),
+	          React.createElement('br', null),
+	          React.createElement('br', null),
+	          React.createElement('textarea', { placeholder: 'Comment', ref: function ref(textarea) {
+	              return _this4._body = textarea;
+	            } })
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'comment-form-actions' },
+	          React.createElement(
+	            'button',
+	            { type: 'submit' },
+	            'Post comment'
+	          )
+	        )
+	      );
+	    }
+	  }, {
+	    key: '_handleSubmit',
+	    value: function _handleSubmit(e) {
+	      e.preventDefault();
+	
+	      var author = this._author;
+	      var body = this._body;
+	
+	      this.props.addComment(author.value, body.value); // this method has been passed as an argument
+	    }
+	  }]);
+	
+	  return CommentForm;
+	}(React.Component);
+	
 	// Отдельный комментарий
 	
 	
-	var Comment = function (_React$Component3) {
-	  _inherits(Comment, _React$Component3);
+	var Comment = function (_React$Component4) {
+	  _inherits(Comment, _React$Component4);
 	
 	  function Comment() {
 	    _classCallCheck(this, Comment);

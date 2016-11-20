@@ -8,35 +8,17 @@ class CommentBox extends React.Component {
     super()
 
     this.state = {
-      showComments: false
+      showComments: false,
+      comments: [
+        { id: 1, author: 'Morgan McCircuit', body: 'Great picture!' },
+        { id: 2, author: 'Bending Bender', body: 'Exellent stuff' }
+      ]
     }
   }
 
   render() {
-    // функция, возвращающая комменты в виде массива реактовских компонентов.
-    this._getComments = () => {
-      const commentList = [
-        { id: 1, author: 'Morgan McCircuit', body: 'Great picture!' },
-        { id: 2, author: 'Bending Bender', body: 'Exellent stuff' }
-      ]
-
-      return commentList.map((comment) => {
-        // Превращаем каждый объект в компонент.
-        return (
-          <Comment author={comment.author} body={comment.body} key={comment.id} />
-        )
-      })
-    }
-
     // записываем массив комонентов с комментариями в переменную.
     const comments = this._getComments();
-
-    // Функция, меняющая стейт, по которому показывается блок комментариев.
-    this._handleClick = () => {
-      this.setState({
-        showComments: !this.state.showComments
-      })
-    }
 
     // Условие, по которому показывается блок комментариев
     let commentNodes;
@@ -44,22 +26,53 @@ class CommentBox extends React.Component {
       commentNodes = <div className='comment-list'>{comments}</div>
     }
 
-    var buttonText = 'Show comments'
-
+    let buttonText = 'Show comments'
     if (this.state.showComments) {
       buttonText = 'Hide comments'
     }
-
 
     // Рендерим обёртку с комментариями.
     return(
       <div className='comment-box'>
         <h3>Comments</h3>
+        <CommentForm addComment={this._addComment.bind(this)} />
         <CommentQuantity count={comments.length} />
         <button onClick={this._handleClick.bind(this)}>{buttonText}</button>
         {commentNodes}
       </div>
     )
+  }
+
+  // Функция, меняющая стейт, по которому показывается блок комментариев.
+  _handleClick() {
+    this.setState({
+      showComments: !this.state.showComments
+    })
+  }
+
+  // Функция, возвращающая комменты в виде массива реактовских компонентов.
+  _getComments() {
+    return this.state.comments.map((comment) => {
+      return (
+        <Comment
+          author={comment.author}
+          body={comment.body}
+          key={comment.id} /> // Превращаем каждый объект в компонент.
+      )
+    })
+  }
+
+  // Функция, отправляющая содержимое формы комментария в массив комментариев
+  _addComment(author, body) {
+    const comment = {
+      id: this.state.comments.length + 1,
+      author,
+      body
+    }
+
+    this.setState({
+      comments: this.state.comments.concat([comment])
+    })
   }
 }
 
@@ -76,6 +89,37 @@ class CommentQuantity extends React.Component {
     } else {
       return(<h4 className='comment-count'>{commentCount} comments</h4>)
     }
+  }
+}
+
+
+// Форма добавления нового комментария
+class CommentForm extends React.Component {
+  render() {
+    return(
+      <form className='CommentForm' onSubmit={this._handleSubmit.bind(this)}>
+        <label>Join the discussion</label>
+        <div className='comment-form-fields'>
+          <input placeholder='Name' ref={(input) => this._author = input} />
+          <br/><br/>
+          <textarea placeholder='Comment' ref={(textarea) => this._body = textarea}></textarea>
+        </div>
+        <div className='comment-form-actions'>
+          <button type='submit'>
+            Post comment
+          </button>
+        </div>
+      </form>
+    )
+  }
+
+  _handleSubmit(e) {
+    e.preventDefault()
+
+    let author = this._author
+    let body = this._body
+
+    this.props.addComment(author.value, body.value) // this method has been passed as an argument
   }
 }
 
