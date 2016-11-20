@@ -72,10 +72,36 @@
 	  _createClass(StoryBox, [{
 	    key: 'render',
 	    value: function render() {
+	      var now = new Date();
+	      var topicsList = ['HTML', 'JavaScript', 'React'];
+	
 	      return React.createElement(
 	        'div',
 	        null,
-	        'Story Box'
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Stories'
+	        ),
+	        React.createElement(
+	          'p',
+	          { className: 'lead' },
+	          'Current time: ',
+	          now.getHours(),
+	          ':',
+	          now.getMinutes()
+	        ),
+	        React.createElement(
+	          'ul',
+	          null,
+	          topicsList.map(function (topic) {
+	            return React.createElement(
+	              'li',
+	              null,
+	              topic
+	            );
+	          })
+	        )
 	      );
 	    }
 	  }]);
