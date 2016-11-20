@@ -42,9 +42,9 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/*!***************************************!*\
-  !*** ./src/client/app/components.jsx ***!
-  \***************************************/
+/*!*************************************!*\
+  !*** ./src/client/app/comments.jsx ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60,56 +60,174 @@
 	var React = __webpack_require__(/*! react */ 1);
 	var ReactDOM = __webpack_require__(/*! react-dom */ 32);
 	
-	var StoryBox = function (_React$Component) {
-	  _inherits(StoryBox, _React$Component);
+	// Обёртка для комментариев
 	
-	  function StoryBox() {
-	    _classCallCheck(this, StoryBox);
+	var CommentBox = function (_React$Component) {
+	  _inherits(CommentBox, _React$Component);
 	
-	    return _possibleConstructorReturn(this, (StoryBox.__proto__ || Object.getPrototypeOf(StoryBox)).apply(this, arguments));
+	  function CommentBox() {
+	    _classCallCheck(this, CommentBox);
+	
+	    var _this = _possibleConstructorReturn(this, (CommentBox.__proto__ || Object.getPrototypeOf(CommentBox)).call(this));
+	
+	    _this.state = {
+	      showComments: false
+	    };
+	    return _this;
 	  }
 	
-	  _createClass(StoryBox, [{
+	  _createClass(CommentBox, [{
 	    key: 'render',
 	    value: function render() {
-	      var now = new Date();
-	      var topicsList = ['HTML', 'JavaScript', 'React'];
+	      var _this2 = this;
 	
+	      // функция, возвращающая комменты в виде массива реактовских компонентов.
+	      this._getComments = function () {
+	        var commentList = [{ id: 1, author: 'Morgan McCircuit', body: 'Great picture!' }, { id: 2, author: 'Bending Bender', body: 'Exellent stuff' }];
+	
+	        return commentList.map(function (comment) {
+	          // Превращаем каждый объект в компонент.
+	          return React.createElement(Comment, { author: comment.author, body: comment.body, key: comment.id });
+	        });
+	      };
+	
+	      // записываем массив комонентов с комментариями в переменную.
+	      var comments = this._getComments();
+	
+	      // Функция, меняющая стейт, по которому показывается блок комментариев.
+	      this._handleClick = function () {
+	        _this2.setState({
+	          showComments: !_this2.state.showComments
+	        });
+	      };
+	
+	      // Условие, по которому показывается блок комментариев
+	      var commentNodes = void 0;
+	      if (this.state.showComments) {
+	        commentNodes = React.createElement(
+	          'div',
+	          { className: 'comment-list' },
+	          comments
+	        );
+	      }
+	
+	      var buttonText = 'Show comments';
+	
+	      if (this.state.showComments) {
+	        buttonText = 'Hide comments';
+	      }
+	
+	      // Рендерим обёртку с комментариями.
 	      return React.createElement(
 	        'div',
-	        null,
+	        { className: 'comment-box' },
 	        React.createElement(
 	          'h3',
 	          null,
-	          'Stories'
+	          'Comments'
+	        ),
+	        React.createElement(CommentQuantity, { count: comments.length }),
+	        React.createElement(
+	          'button',
+	          { onClick: this._handleClick.bind(this) },
+	          buttonText
+	        ),
+	        commentNodes
+	      );
+	    }
+	  }]);
+	
+	  return CommentBox;
+	}(React.Component);
+	
+	// Компонент, отображающий колчество комментов.
+	
+	
+	var CommentQuantity = function (_React$Component2) {
+	  _inherits(CommentQuantity, _React$Component2);
+	
+	  function CommentQuantity() {
+	    _classCallCheck(this, CommentQuantity);
+	
+	    return _possibleConstructorReturn(this, (CommentQuantity.__proto__ || Object.getPrototypeOf(CommentQuantity)).apply(this, arguments));
+	  }
+	
+	  _createClass(CommentQuantity, [{
+	    key: 'render',
+	    value: function render() {
+	      var commentCount = this.props.count;
+	
+	      if (commentCount == 0) {
+	        return React.createElement(
+	          'h4',
+	          { className: 'comment-count' },
+	          'No comments'
+	        );
+	      } else if (commentCount == 1) {
+	        return React.createElement(
+	          'h4',
+	          { className: 'comment-count' },
+	          '1 comment'
+	        );
+	      } else {
+	        return React.createElement(
+	          'h4',
+	          { className: 'comment-count' },
+	          commentCount,
+	          ' comments'
+	        );
+	      }
+	    }
+	  }]);
+	
+	  return CommentQuantity;
+	}(React.Component);
+	
+	// Отдельный комментарий
+	
+	
+	var Comment = function (_React$Component3) {
+	  _inherits(Comment, _React$Component3);
+	
+	  function Comment() {
+	    _classCallCheck(this, Comment);
+	
+	    return _possibleConstructorReturn(this, (Comment.__proto__ || Object.getPrototypeOf(Comment)).apply(this, arguments));
+	  }
+	
+	  _createClass(Comment, [{
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'div',
+	        { className: 'comment' },
+	        React.createElement(
+	          'p',
+	          { className: 'comment-header' },
+	          this.props.author
 	        ),
 	        React.createElement(
 	          'p',
-	          { className: 'lead' },
-	          'Current time: ',
-	          now.getHours(),
-	          ':',
-	          now.getMinutes()
+	          { className: 'comment-body' },
+	          this.props.body
 	        ),
 	        React.createElement(
-	          'ul',
-	          null,
-	          topicsList.map(function (topic) {
-	            return React.createElement(
-	              'li',
-	              null,
-	              topic
-	            );
-	          })
+	          'div',
+	          { className: 'comment-footer' },
+	          React.createElement(
+	            'a',
+	            { href: '#', className: 'comment-footer-delete' },
+	            'Delete comment'
+	          )
 	        )
 	      );
 	    }
 	  }]);
 	
-	  return StoryBox;
+	  return Comment;
 	}(React.Component);
 	
-	ReactDOM.render(React.createElement(StoryBox, null), document.getElementById('story-app'));
+	ReactDOM.render(React.createElement(CommentBox, null), document.getElementById('story-app'));
 
 /***/ },
 /* 1 */
