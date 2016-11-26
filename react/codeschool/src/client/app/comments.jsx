@@ -1,6 +1,6 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
-
+const React = require('react')
+const ReactDOM = require('react-dom')
+const jquery = require('jquery')
 
 // Обёртка для комментариев
 class CommentBox extends React.Component {
@@ -10,17 +10,21 @@ class CommentBox extends React.Component {
     this.state = {
       showComments: false,
       comments: [
-        { id: 1, author: 'Morgan McCircuit', body: 'Great picture!' },
-        { id: 2, author: 'Bending Bender', body: 'Exellent stuff' }
+
       ]
     }
+  }
+
+  // Стандартная функция, исполняющаяся перед первым рендеренгом компонента.
+  componentWillMount() {
+    _fetchComments()
   }
 
   render() {
     // записываем массив комонентов с комментариями в переменную.
     const comments = this._getComments();
 
-    // Условие, по которому показывается блок комментариев
+    // Условие, по которому показывается блок комментариев.
     let commentNodes;
     if (this.state.showComments) {
       commentNodes = <div className='comment-list'>{comments}</div>
@@ -41,6 +45,16 @@ class CommentBox extends React.Component {
         {commentNodes}
       </div>
     )
+  }
+
+  // Стандартная функция, исполняющаяся после рендеринга компонента.
+  componentDidMount() {
+    this._timer = setInterval(() => this._fetchComments(), 5000)
+  }
+
+  // Стандартная функция, исполняющаяся после удаления компонента.
+  componentWillUnMount() {
+    clearInterval(this._timer)
   }
 
   // Функция, меняющая стейт, по которому показывается блок комментариев.
@@ -72,6 +86,23 @@ class CommentBox extends React.Component {
 
     this.setState({
       comments: this.state.comments.concat([comment])
+    })
+  }
+
+  _fetchComments() {
+    jquery.ajax({
+      method: 'GET',
+      url: '/api/comments',
+      success: (comments) => {
+        this.setState({comments})
+      }
+    })
+  }
+
+  _deleteComment() {
+    jquery.ajax({
+      method: 'DELETE',
+      url: `/api/comments/${comment.id}`
     })
   }
 }
@@ -134,7 +165,7 @@ class Comment extends React.Component {
           {this.props.body}
         </p>
         <div className='comment-footer'>
-          <a href='#' className='comment-footer-delete'>
+          <a onClick={this._deleteComment.bind(this)} href='#' className='comment-footer-delete'>
             Delete comment
           </a>
         </div>
