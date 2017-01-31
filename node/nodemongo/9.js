@@ -1,15 +1,11 @@
-'use strict';
+const mongo = require('mongodb').MongoClient
 
-var mongo = require('mongodb').MongoClient;
-
-var url = 'mongodb://localhost:27017/learnyoumongo';
-
-var size = process.argv[2];
+const url = 'mongodb://localhost:27017/learnyoumongo'
+const size = process.argv[2]
 
 mongo.connect(url, function(err, db) {
-	if (err) throw err;
-
-	var collection = db.collection('prices');
+	if (err) throw err
+	const collection = db.collection('prices')
 
 	collection.aggregate([
 		{$match: {size: size}},
@@ -19,9 +15,8 @@ mongo.connect(url, function(err, db) {
 				$avg: '$price'
 			}
 		}}
-	], function(err, data){
-		console.log(data[0].average.toFixed(2));
-		db.close();
-	});
-
-});
+	], function(err, data) {
+		console.log(data[0].average.toFixed(2))
+		db.close()
+	})
+})
