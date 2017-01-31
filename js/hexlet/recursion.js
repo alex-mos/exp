@@ -5,13 +5,11 @@ const assert = require('assert');
 // factorial
 var factorial = function (n) {
 	if (n === 0) return 1;
-
 	return n * factorial(n - 1);
 };
 
 assert.equal(factorial(0), 1);
 assert.equal(factorial(5), 120);
-
 
 // exercise
 function sequenceSum(begin, end, step) {
