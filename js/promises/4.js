@@ -1,12 +1,8 @@
-var promise = new Promise(function(fulfill, reject) {
-	fulfill('I FIRED');
-	reject(new Error('I DID NOT FIRE'));
-}).then(onFulfill, onReject);
-
-function onFulfill(result) {
-	console.log(result);
-}
-
-function onReject(error) {
-	console.log(error.message);
-}
+var promise = new Promise((fulfill, reject) => {
+	fulfill('I FIRED')
+	reject(new Error('I DID NOT FIRE'))
+}).then(result => {
+	console.log(result)
+}, error => {
+	console.log(error.message)
+})

@@ -1,7 +1,7 @@
-var promise = new Promise(function (fulfill, reject) {
+var promise = new Promise((fulfill, reject) => {
 	setTimeout(function () {
-		fulfill('FULFILLED!');
+		fulfill('FULFILLED!')
 	}, 300)
 }).then(function(result) {
 	console.log(result);
-});
+})
