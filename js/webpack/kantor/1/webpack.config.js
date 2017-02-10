@@ -4,7 +4,8 @@ const webpack = require('webpack')
 module.exports = {
     entry: { // точки входа, которые необходимо собрать
       home: './frontend/home',
-      about: './frontend/about'
+      about: './frontend/about',
+      common: './frontend/common'
     },
 
     output: {
@@ -27,16 +28,11 @@ module.exports = {
                   presets: ['es2015']
                 }
             }
-            // {
-              // test: /\.less/,
-              // exclude: /(node_modules|bower_components)/,
-              // loader: 'style!css!less'
-            // }
         ]
     },
 
     plugins: [
-      new webpack.NoErrorsPlugin(), // плагин, мешающий созданию билда при ошибках компиляции
+      new webpack.NoEmitOnErrorsPlugin(), // плагин, мешающий созданию билда при ошибках компиляции
       new webpack.optimize.UglifyJsPlugin({ // плагин для минификации
         compress: {
           warnings: false,
