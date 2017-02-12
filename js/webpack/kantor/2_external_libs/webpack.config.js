@@ -1,14 +1,24 @@
-const webpack = require('webpack')
-
 module.exports = {
-  context: './frontend', // корневая папка для модулей
+  context: `${__dirname}/frontend`, // корневая папка для модулей
   entry: './app', // корневой модуль
 
   output: {
     path: `${__dirname}/public`,
-    publicPath: '/',
     filename: 'app.js'
   },
+
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        include: `${__dirname}/frontend`,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ]
+  }
 
   // externals: { // позволяет подключать модулем библиотеку из cdn
     // lodash: '_'

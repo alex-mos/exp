@@ -60,10 +60,10 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -17156,22 +17156,75 @@
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./../../../../../../../../../../usr/local/lib/node_modules/webpack/buildin/global.js\""); e.code = 'MODULE_NOT_FOUND';; throw e; }())), __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./../../../../../../../../../../usr/local/lib/node_modules/webpack/buildin/module.js\""); e.code = 'MODULE_NOT_FOUND';; throw e; }()))(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(2)(module)))
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const _ = __webpack_require__(0)
+"use strict";
 
-let users = [
-  {id: 'abcd', name: 'Vasya'},
-  {id: 'defa', name: 'Petya'},
-  {id: '1234', name: 'Masha'}
-]
 
-console.log(_.pluck(users, 'name'))
+var _ = __webpack_require__(0);
 
+var users = [{ id: 'abcd', name: 'Vasya' }, { id: 'defa', name: 'Petya' }, { id: '1234', name: 'Masha' }];
+
+console.log(_.pluck(users, 'name'));
 
 /***/ })
 /******/ ]);
