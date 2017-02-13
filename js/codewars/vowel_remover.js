@@ -1,5 +1,3 @@
-function shortcut(str){
-	return str.replace(/[aeoui]/g, '');
-}
+const shortcut (str) => str.replace(/[aeoui]/g, '')
 
-console.log(shortcut('how are you today?'));
+console.log(shortcut('how are you today?'))

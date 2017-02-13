@@ -1,1 +1,1 @@
-var include = (arr, item) => arr.indexOf(item) != -1;
+var include = (arr, item) => arr.indexOf(item) != -1

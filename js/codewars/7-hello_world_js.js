@@ -1,12 +1,5 @@
-"use strict";
+const assert = require('assert')
 
-/*** My ***/
+const say = string1 => string2 => `${string1} ${string2}`
 
-var say = string1 => string2 => `${string1} ${string2}`;
-
-/*** Best ***/
-
-
-/*** Usage ***/
-
-console.log(say('Hello')('World'));
+assert.equal(say('Hello')('World'), 'Hello World')

@@ -1,17 +1,8 @@
-/*** My ***/
-
-Array.prototype.sum = function () {
-	return this.reduce(function (sum, item) {
-		return sum + item;
-	}, 0);
-};
-
-/*** Best ***/
+const assert = require('assert')
 
 Array.prototype.sum = function() {
-	return this.reduce((sum, el) => sum + el, 0);
-};
+	return this.reduce((sum, el) => sum + el, 0)
+}
 
-/*** Usage ***/
-
-console.log([].sum());
+assert.equal([].sum(), 0)
+assert.equal([2, 5, 7].sum(), 14)

@@ -7,13 +7,13 @@
 	// itself to process each of the child nodes.
 
 	var walk_the_DOM = function walk(node, func) {
-		func(node);
-		node = node.firstChild();
+		func(node)
+		node = node.firstChild()
 		while (node) {
-			walk(node, func);
-			node = node.nextSibling;
+			walk(node, func)
+			node = node.nextSibling
 		}
-	};
+	}
 
 	// Define a getElementsByAttribute function. It
 	// takes an attribute name string and an optional matching
@@ -22,18 +22,18 @@
 	// The matching nodes are accumulated in a results array.
 
 	var getElementsByAttribute = function(att, value) {
-		var results = [];
+		var results = []
 
 		walk_the_DOM(document.body, function(node) {
-			var actual = node.nodeType === 1 && node.getAttribute(att);
+			var actual = node.nodeType === 1 && node.getAttribute(att)
 			if (typeof actual === 'string' && (actual === value || typeof value === 'string')) {
-				results.push(node);
+				results.push(node)
 			}
-		});
+		})
 
-		return results;
-	};
+		return results
+	}
 
-	console.log(getElementsByAttribute('data-info', '123'));
+	console.log(getElementsByAttribute('data-info', '123'))
 
-})();
+})()

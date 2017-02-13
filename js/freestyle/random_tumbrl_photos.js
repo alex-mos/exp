@@ -1,5 +1,4 @@
-var request = require('request');
-
+var request = require('request')
 
 var options = {
 	type: "GET",
@@ -8,31 +7,31 @@ var options = {
 	data: {
 		api_key: "fuiKNFp9vQFvjLNvx4sUwti4Yb5yGutBN4Xh10LXZhhRKjWlV4"
 	}
-};
+}
 
-var post = 0;
+var post = 0
 
 function callback(error, response, body) {
 	if (!error && response.statusCode == 200) {
 
-		post++;
+		post++
 
 		if (post >= 19) {
-			post = 0;
+			post = 0
 		}
 
-		var data = JSON.parse(body);
+		var data = JSON.parse(body)
 
-		console.log(data.response.posts.length);
+		console.log(data.response.posts.length)
 
 		for (i in data.response.posts[post].photos) {
-			console.log(data.response.posts[post].photos[i].original_size.url);
+			console.log(data.response.posts[post].photos[i].original_size.url)
 		}
 
 	}
 }
 
-request(options, callback);
+request(options, callback)
 
 
 /*
@@ -46,12 +45,12 @@ request(options, callback);
  }
  }).done(function (data) {
  $.each(data.response.posts, function () {
- var _photos = this.photos;
+ var _photos = this.photos
 
  $.each(_photos, function () {
- console.log(this.original_size.url);
- });
- });
- });
+ console.log(this.original_size.url)
+ })
+ })
+ })
 
  */

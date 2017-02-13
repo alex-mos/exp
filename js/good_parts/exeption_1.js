@@ -1,5 +1,3 @@
-'use strict';
-
 var add = function(a, b) {
 	if (typeof a != 'number' || typeof b != 'number') {
 		throw {
@@ -7,15 +5,15 @@ var add = function(a, b) {
 			message: 'Add needs numbers'
 		}
 	}
-	return a + b;
-};
+	return a + b
+}
 
 var tryIt = function() {
 	try {
-		add(1 + 'two');
+		add(1 + 'two')
 	} catch (e) {
-		console.log(e.name + ': ' + e.message);
+		console.log(e.name + ': ' + e.message)
 	}
-} ;
+}
 
-tryIt();
+tryIt()
