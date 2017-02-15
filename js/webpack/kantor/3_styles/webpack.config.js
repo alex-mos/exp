@@ -18,12 +18,12 @@ module.exports = {
         loader: 'jade-loader'
       },
       {
-        test: /\.css/,
-        loader: 'style-loader!css' // !autoprefixer?browsers=last 2 version
+        test: /\.css$/,
+        loader: 'style-loader!css-loader' // !autoprefixer?browsers=last 2 version
       },
       {
         test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-        loader: 'file?name=[path][name].[ext]'
+        loader: 'file-loader?name=[path][name].[ext]'
       }
     ]
   }
