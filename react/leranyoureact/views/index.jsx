@@ -81,10 +81,11 @@ class TodoForm extends Component {
   }
 }
 
-export default TodoBox
 
 let style = {
   tableContent: {
     border: '1px solid black'
   }
 }
+
+export default TodoBox
