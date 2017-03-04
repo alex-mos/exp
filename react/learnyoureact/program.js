@@ -19,7 +19,7 @@ app.engine('jsx', require('express-react-views')
 )
 
 require('babel/register')({
-    ignore: false
+  ignore: false
 })
 
 const TodoBox = require('./views/index.jsx')
@@ -35,15 +35,12 @@ var data = [
   }
 ]
 
-app.use('/bundle.js', (req, res) => {
-  res.setHeader('content-type', 'application/javascript')
 
-  browserify({debug: true})
-    .transform(babelify.configure({
-      presets: ['react', 'es2015'],
-      compact: false
-    }))
-    .require('./app.js', {entry: true})
+app.use('/bundle.js', function(req, res) {
+  res.setHeader('Content-Type', 'application/javascript')
+
+  browserify('./app.js')
+    .transform('babelify', { presets: ['react', 'es2015'] })
     .bundle()
     .pipe(res)
 })
@@ -66,6 +63,8 @@ app.use('/', function(req, res) {
       src: '/bundle.js'
     })
   ))
+
+  console.log('lalal')
 
   res.end(html)
 })
