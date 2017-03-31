@@ -1,10 +1,10 @@
 // reference error
 var referenceError = () => {
-	return nothing;
-};
+	return nothing
+}
 
 // type error
 var typeError = () => {
-	var a = 3;
-	return a();
-};
+	var a = 3
+	return a()
+}
