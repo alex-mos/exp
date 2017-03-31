@@ -1,23 +1,23 @@
-'use strict';
+'use strict'
 
 const nextItem = function(xs, item) {
-	let next = false;
+	let next = false
 	for (let testing of xs) {
 		if (next) {
-			return testing;
+			return testing
 		}
-		next = testing == item;
+		next = testing == item
 	}
 };
 
 // -----
 
-console.log(nextItem("testing", "t"));
+console.log(nextItem("testing", "t"))
 
 function* countFrom(n) {
 	for (let i = n; ; ++i) {
-		yield i;
+		yield i
 	}
 }
 
-console.log(nextItem(countFrom(1), 12));
+console.log(nextItem(countFrom(1), 12))
