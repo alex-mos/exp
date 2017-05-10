@@ -1,7 +1,4 @@
-const assert = require('assert')
-
-// my
-
+/* my */
 const normalize = (word) => word.split('').sort().join('')
 
 const groupAnagrams = (arr) => {
@@ -24,8 +21,7 @@ const groupAnagrams = (arr) => {
   return resultArr
 }
 
-// best
-
+/* best */
 function groupAnagrams(words){
   var groups = {}
   words.forEach(function(w) {
@@ -36,6 +32,7 @@ function groupAnagrams(words){
 }
 
 // test
+const assert = require('assert')
 
 assert.deepEqual(groupAnagrams(
   ["tsar", "rat", "tar", "star", "tars", "cheese"]),

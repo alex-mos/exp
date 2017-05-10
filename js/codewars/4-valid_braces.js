@@ -1,8 +1,9 @@
-const assert = require('assert')
-
-const validBraces = (str) => {
+function validBraces (str) {
 
 }
+
+/* test */
+const assert = require('assert')
 
 assert.equal(validBraces("(){}[]"), true)
 assert.equal(validBraces("(}"), false)
