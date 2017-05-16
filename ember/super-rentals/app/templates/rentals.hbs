@@ -1,12 +1,20 @@
 <div class="jumbo">
   <div class="right tomster"></div>
   <h2>Welcome!</h2>
-  <p>We hope you find exactly what you're looking for in a place to stay.</p>
+  <p>
+    We hope you find exactly what you're looking for in a place to stay.
+  </p>
   {{#link-to 'about' class="button"}}
     About Us
   {{/link-to}}
 </div>
 
-{{#each model as |rentalUnit|}}
-  {{rental-listing rental=rentalUnit}}
-{{/each}}
+{{#list-filter
+  filter=(action 'filterByCity')
+  as |rentals|}}
+  <ul>
+    {{#each model as |rentalUnit|}}
+      <li>{{rental-listing rental=rentalUnit}}</li>
+    {{/each}}
+  </ul>
+{{/list-filter}}
