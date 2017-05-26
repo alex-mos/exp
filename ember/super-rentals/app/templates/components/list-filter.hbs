@@ -1,1 +1,5 @@
-{{yield}}
+{{input value=value
+        key-up=(action 'handleFilterEntry')
+        class="light"
+        placeholder="Filter by the City"}}
+{{yield results}}
