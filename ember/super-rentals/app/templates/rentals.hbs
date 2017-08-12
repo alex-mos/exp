@@ -12,9 +12,12 @@
 {{#list-filter
   filter=(action 'filterByCity')
   as |rentals|}}
-  <ul>
-    {{#each model as |rentalUnit|}}
-      <li>{{rental-listing rental=rentalUnit}}</li>
+
+  <ul class="results">
+    {{#each rentals as |rentalUnit|}}
+      <li>
+        {{rental-listing rental=rentalUnit}}
+      </li>
     {{/each}}
   </ul>
 {{/list-filter}}

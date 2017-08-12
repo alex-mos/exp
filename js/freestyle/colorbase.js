@@ -1,6 +1,6 @@
-const assert = require('assert')
+const mongo = require('mongodb').MongoClient
 
-const PRESET_COLORS = {
+const colors = {
   aliceblue: '#f0f8ff',
   antiquewhite: '#faebd7',
   aqua: '#00ffff',
@@ -151,35 +151,15 @@ const PRESET_COLORS = {
   yellowgreen: '#9acd32'
 }
 
-function parseHtmlColor (color) {
-  color = normalizeColor(color)
-  return {
-    r: parseInt(color.slice(1,3), 16),
-    g: parseInt(color.slice(3,5), 16),
-    b: parseInt(color.slice(5), 16)
+mongo.connect('mongodb://localhost:27017/colors', (err, db) => {
+  if (err) throw err
+
+  const collection = db.collection('colors')
+  for (key in colors) {
+    collection.insert({
+      name: key,
+      hex: colors[key]
+    })
   }
-}
-
-assert.deepEqual(parseHtmlColor('#80ffa0'), { r: 128, g: 255, b: 160 })
-assert.deepEqual(parseHtmlColor('#3b7'), { r: 51, g: 187, b: 119 })
-assert.deepEqual(parseHtmlColor('limegreen'), { r: 50, g: 205, b: 50 })
-
-function normalizeColor (color) {
-  color = color.toLowerCase()
-  if (/^#.{3}$/.test(color)) {
-    color = shortToLongHex(color)
-  } else if (Object.keys(PRESET_COLORS).includes(color)) {
-    color = PRESET_COLORS[color]
-  }
-  return color
-}
-
-assert.equal(normalizeColor('#3B7'), '#33bb77')
-assert.equal(normalizeColor('#AAAAAA'), '#aaaaaa')
-assert.equal(normalizeColor('teal'), '#008080')
-
-function shortToLongHex (color) {
-  return '#' + color.slice(1).split('').map(char => char.repeat(2)).join('')
-}
-
-assert.equal(shortToLongHex('#3b7'), '#33bb77')
+  db.close();
+})
