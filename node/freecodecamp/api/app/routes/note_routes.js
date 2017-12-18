@@ -16,7 +16,17 @@ module.exports = function(app, database) {
     })
   })
 
-  app.get('/notes/:id', (req, res) => {
+  app.get('/notes', (req, res) => {
+    database.collection('notes').find({}).toArray(function(err, docs) {
+      if (err) {
+        res.send({ error: 'An error has occured' })
+      } else {
+        res.send(docs)
+      }
+    })
+  })
+
+  app.get('/note/:id', (req, res) => {
     const id = req.params.id
     const details = {
       _id: new ObjectID(id)
@@ -31,7 +41,7 @@ module.exports = function(app, database) {
     })
   })
 
-  app.put('/notes/:id', (req, res) => {
+  app.put('/note/:id', (req, res) => {
     const id = req.params.id
     const details = {
       _id: new ObjectID(id)
@@ -50,7 +60,7 @@ module.exports = function(app, database) {
     })
   })
 
-  app.delete('/notes/:id', (req, res) => {
+  app.delete('/note/:id', (req, res) => {
     const id = req.params.id
     const details = {
       _id: new ObjectID(id)
