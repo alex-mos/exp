@@ -5,14 +5,23 @@
         <input
           type="text"
           placeholder="Enter a skill you have..."
+          autofocus
           v-model="skill"
           v-validate="'min:5'"
           name="skill">
-        <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
+
+        <transition enter-active-class="animated flipInX" leave-active-class="animated flipOutX">
+          <p class="alert" v-if="errors.has('skill')">{{ errors.first('skill') }}</p>
+        </transition>
       </form>
 
       <ul>
-        <li v-for="(data, index) in skills" :key="index">{{ index }}. {{ data.skill }}</li>
+        <transition-group enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutLeft">
+          <li v-for="(data, index) in skills" :key="index">
+            {{ data.skill }}
+            <i class="fa fa-minus-circle" v-on:click="removeSkill(index)"></i>
+          </li>
+        </transition-group>
       </ul>
     </div>
 
@@ -34,8 +43,17 @@
     },
     methods: {
       addSkill() {
-        this.skills.push({ 'skill': this.skill })
-        this.skill = ''
+        this.$validator.validateAll().then((result) => {
+          if (result) {
+            this.skills.push({ 'skill': this.skill })
+            this.skill = ''
+          } else {
+            console.log('not valid');
+          }
+        })
+      },
+      removeSkill(index) {
+        this.skills.splice(index, 1)
       }
     }
   }
@@ -78,22 +96,16 @@
     font-size: 1.3em;
     background-color: #323333;
     color: #687F7F;
+    outline: none;
   }
 
   .alert {
     background: #fdf2ce;
     font-weight: bold;
-    display: inline-block;
+    display: block;
+    position: absolute;
     padding: 5px;
     margin-top: -20px;
-  }
-
-  .alert-in-enter-active {
-    animation: bounce-in .5s;
-  }
-
-  .alert-in-leave-active {
-    animation: bounce-in .5s reverse;
   }
 
   @keyframes bounce-in {

@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <Skills/>
+    <nav>
+      <router-link to="/">Home</router-link>
+      <router-link to="{ name: 'about', params: { name: 'Alex' }}">About</router-link>
+    </nav>
+
+    <router-view></router-view>
   </div>
 </template>
 
@@ -17,6 +22,8 @@
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+  @import url('https://use.fontawesome.com/releases/v5.0.10/css/all.css');
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
 
   body {
     background-color: #EEEEEE;
