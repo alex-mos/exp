@@ -11,4 +11,4 @@ export default {
     email: 'testing@gmail.com',
     password: '12345'
   })
- */
+*/
