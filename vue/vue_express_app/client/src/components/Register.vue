@@ -18,12 +18,6 @@
         password: ''
       }
     },
-    // watch example
-    // watch: {
-    //   email (value) {
-    //     console.log('email has changed', value)
-    //   }
-    // },
     methods: {
       async register () {
         const response = await AuthenticationService.register({
@@ -33,10 +27,6 @@
         console.log(response.data)
       }
     }
-    // mount example
-    // mounted () {
-    //
-    // }
   }
 </script>
 

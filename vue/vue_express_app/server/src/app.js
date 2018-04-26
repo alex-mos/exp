@@ -5,9 +5,13 @@ const morgan = require('morgan') // logger
 
 const app = express()
 
-app.use(morgan('combined'))
+app.use(morgan('tiny'))
 app.use(bodyParser.json())
 app.use(cors())
+
+app.get('/', (req, res) => {
+  res.end('server is running')
+})
 
 app.post('/register', (req, res) => {
   res.send({
