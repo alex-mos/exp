@@ -13,17 +13,33 @@ export default new Vuex.Store({
     ]
   },
   getters: {
-    countLinks: state => {
+    countLinks (state) {
       return state.links.length
     }
   }
   ,
   mutations: {
-    ADD_LINK: (state, link) => {
+    ADD_LINK (state, link) {
       state.links.push(link)
+    },
+    REMOVE_LINK (state, link) {
+      state.links.splice(link, 1)
+    },
+    REMOVE_ALL_LINKS (state) {
+      state.links = []
     }
   },
   actions: {
-
+    removeLink (context, link) {
+      context.commit('REMOVE_LINK', link)
+    },
+    removeAllLinks ({commit}) {
+      return new Promise ((resolve) => {
+        setTimeout(() => {
+          commit('REMOVE_ALL_LINKS')
+          resolve()
+        }, 3000)
+      })
+    }
   }
 })
