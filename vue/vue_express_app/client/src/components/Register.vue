@@ -1,30 +1,34 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>
-            Register
-          </v-toolbar-title>
-        </v-toolbar>
+  <v-flex xs6 offset-xs3>
+    <div class="white elevation-2">
+      <v-toolbar flat dense class="cyan" dark>
+        <v-toolbar-title>
+          Register
+        </v-toolbar-title>
+      </v-toolbar>
 
-        <form @submit.prevent="register" class="pt-2 pr-4 pb-2 pl-4">
-          <h1>Register</h1>
-          <input type="email" name="email" v-model="email" placeholder="email">
-          <br>
-          <input type="password" name="password" v-model="password" placeholder="password">
-          <br>
-          <v-btn
-            type="submit"
-            class="cyan">
-            Register
-          </v-btn>
-          <br>
-          {{ error }}
-        </form>
-      </div>
-    </v-flex>
-  </v-layout>
+      <v-form @submit.prevent="register" class="pt-2 pr-4 pb-2 pl-4">
+        <v-text-field
+          v-model="email"
+          label="email">
+        </v-text-field>
+
+        <v-text-field
+          v-model="password"
+          label="password"
+          type="password">
+        </v-text-field>
+
+        <v-btn
+          type="submit"
+          class="cyan">
+          Register
+        </v-btn>
+        <br>
+        {{ error }}
+      </v-form>
+    </div>
+  </v-flex>
 </template>
 
 <script>
