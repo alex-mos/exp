@@ -2,7 +2,7 @@ var format = function (text, width) {
 
     var stringArray = [];
     var i = 0;
-
+debugger
     while (i < text.length) {
         var slice = text.slice(i, i + width);
         if (slice.length == width) {
@@ -28,9 +28,6 @@ var text81 =   'Whmwpyeoa, fszpfaan aoaco. Aiye qi feiouo dfjv efa. Cn. Waa efoa
                 'ahojeaeta. Ugb vtnisoaico nege. Slnyaitox. Tupnsa cwhzcp. Sifniop imocpi fcecjac ' +
                 'aaeo. Fbbegcjyo iui cnrhft fieocaty izmhceyunn ceimlev. Catefof. Lci yie eoacyzmw ' +
                 'zuisraoia.';
-
-// console.log(format(text, 30));
-console.log(format(text81, 81));
 
 var result =    "Lorem ipsum dolor sit amet,"    + "\n" +
                 "consectetur adipiscing elit."   + "\n" +
