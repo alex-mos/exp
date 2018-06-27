@@ -2,7 +2,7 @@
   <v-flex xs6 offset-xs3>
     <div class="white elevation-2">
       <v-toolbar flat dense class="cyan" dark>
-        <v-toolbar-title>
+        <v-toolbar-title dark>
           Register
         </v-toolbar-title>
       </v-toolbar>
@@ -21,7 +21,8 @@
 
         <v-btn
           type="submit"
-          class="cyan">
+          class="cyan"
+          dark>
           Register
         </v-btn>
         <br>
