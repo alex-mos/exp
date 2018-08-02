@@ -1,9 +1,13 @@
-mutation(["hello", "hey"]) should return false.
-mutation(["hello", "Hello"]) should return true.
-mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"]) should return true.
-mutation(["Mary", "Army"]) should return true.
-mutation(["Mary", "Aarmy"]) should return true.
-mutation(["Alien", "line"]) should return true.
-mutation(["floor", "for"]) should return true.
-mutation(["hello", "neo"]) should return false.
-mutation(["voodoo", "no"]) should return false.
+import assert from 'assert'
+
+export default function addDigits(num) {
+  if (String(num).length === 1) {
+    return num
+  }
+  return addDigits( String(num).split('').map(char => Number(char)).reduce((acc = 0, digit) => acc + digit) )
+}
+
+assert.equal(addDigits(10), 1)
+assert.equal(addDigits(19), 1)
+assert.equal(addDigits(38), 2)
+assert.equal(addDigits(1259), 8)
