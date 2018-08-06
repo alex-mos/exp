@@ -1,6 +1,9 @@
 class Set {
-  constructor () {
+  constructor (arr) {
     this.set = []
+    if (arr) {
+      arr.forEach(item => this.add(item))
+    }
   }
   add(item) {
     if (this.set.includes(item)) {
@@ -17,12 +20,31 @@ class Set {
     return false
   }
   union(secondSet) {
+    let resultSet = new Set(this.values())
     for (let item of secondSet.values()) {
-      if (!this.set.includes(item)) {
-        this.set.push(item)
-      }
+      resultSet.add(item)
     }
-    return this.values()
+    return resultSet
+  }
+  intersection(secondSet) {
+    return this.set.filter(item => secondSet.values().includes(item))
+  }
+  difference(secondSet) {
+    let resultSet = new Set()
+    this.set.forEach(item => {
+      if (!secondSet.has(item)) {
+        resultSet.add(item)
+      }
+    })
+    secondSet.values().forEach(item => {
+      if (!this.set.includes(item)) {
+        resultSet.add(item)
+      }
+    })
+    return resultSet
+  }
+  subset(secondSet) {
+    return this.set.every(item => secondSet.values().includes(item))
   }
   has(item) {
     return this.set.includes(item)
@@ -35,19 +57,4 @@ class Set {
   }
 }
 
-
-
-
-let s = new Set()
-console.log(s)
-console.log(s.add('a'))
-console.log(s.add('b'))
-console.log(s.add('c'))
-
-let s2 = new Set()
-console.log(s2.add('c'))
-console.log(s2.add('e'))
-console.log(s2.add('d'))
-
-console.log(s.union(s2))
-console.log(s.values())
+module.exports = Set
