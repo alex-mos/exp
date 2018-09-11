@@ -11,9 +11,16 @@ class LinkedList {
     this.head = null
   }
 
+  add(element) {
+    if (this.head) {
+      for (let i = this.head.next; i; i= this.head.next) {
 
-  this.size
+      }
 
+    } else {
+      this.head =
+    }
+  }
   get head() {
     return this.head
   }
@@ -22,11 +29,16 @@ class LinkedList {
   }
 }
 
-let Kitten = new Node('Kitten')
-let Puppy = new Node('Puppy')
-let Cat = new Node('Cat')
-let Dog = new Node('Dog')
 
-Kitten.next = Puppy
-Puppy.next = Cat
-Cat.next = Dog
+let ll = new LinkedList()
+
+
+ll.add('Репка')
+ll.add('Дед')
+ll.add('Бабка')
+ll.add('Внучка')
+ll.add('Собака')
+ll.add('Кошка')
+ll.add('Мышь')
+
+ll.size()
