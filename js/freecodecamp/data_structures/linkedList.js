@@ -8,37 +8,89 @@ class Node {
 class LinkedList {
   constructor() {
     this.length = 0
-    this.head = null
+    this._head = null
   }
-
   add(element) {
-    if (this.head) {
-      for (let i = this.head.next; i; i= this.head.next) {
-
-      }
-
+    if (!this._head) {
+      this._head = new Node(element)
     } else {
-      this.head =
+      let currentNode = this._head
+      while (currentNode.next) {
+        currentNode = currentNode.next
+      }
+      currentNode.next = new Node(element)
     }
+    this.length++
   }
-  get head() {
-    return this.head
+  remove(element) {
+    let currentNode = this._head
+    let previousNode
+    if (currentNode.element === element) { // если удяляемый элемент находится в голове списка
+      this._head = currentNode.next
+    } else {
+      while(currentNode.element !== element) {
+        previousNode = currentNode
+        currentNode = currentNode.next
+      }
+      previousNode.next = currentNode.next
+    }
+    this.length--
   }
-  get size() {
+  removeAt(targetIndex) {
+
+  }
+  head() {
+    return this._head
+  }
+  size() {
     return this.length
+  }
+  isEmpty() {
+    return this.length === 0
+  }
+  indexOf(element) {
+    let result = -1
+    let currentNode = this._head
+    let index = 0
+    while(currentNode) {
+      if (currentNode.element === element) {
+        result = index
+      }
+      index++
+      currentNode = currentNode.next
+    }
+    return result
+  }
+  elementAt(targetIndex) {
+    let result
+    let currentNode = this._head
+    let index = 0
+    while(currentNode) {
+      if (index === targetIndex) {
+        result = currentNode.element
+      }
+      index++
+      currentNode = currentNode.next
+    }
+    return result
   }
 }
 
-
 let ll = new LinkedList()
 
+ll.add('Kitten')
+ll.add('Puppy')
+ll.removeAt(1)
+ll.add('Cat')
+ll.add('Dog')
+ll.add('Hog')
 
-ll.add('Репка')
-ll.add('Дед')
-ll.add('Бабка')
-ll.add('Внучка')
-ll.add('Собака')
-ll.add('Кошка')
-ll.add('Мышь')
 
-ll.size()
+console.log(ll.size())
+console.log(ll.head())
+
+console.log(ll.indexOf('Kitten'))
+console.log(ll.indexOf('Dog'))
+console.log(ll.indexOf('Puppy'))
+console.log(ll.indexOf('Hog'))
+console.log(ll.elementAt(1))
