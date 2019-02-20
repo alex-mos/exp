@@ -21,8 +21,11 @@ function sumFibs (num) {
   let i = 0
   let result = 0
 
-  while (result <= num) {
+  while (true) {
     if (fibonacci(i) % 2) {
+      if (fibonacci(i) > num) {
+        break
+      }
       result += fibonacci(i)
     }
     i++
@@ -30,7 +33,7 @@ function sumFibs (num) {
   return result
 }
 
-console.log(sumFibs(75024))
 assert.equal(sumFibs(1000), 1785)
 assert.equal(sumFibs(4000000), 4613732)
 assert.equal(sumFibs(75024), 60696)
+assert.equal(sumFibs(75025), 135721)
