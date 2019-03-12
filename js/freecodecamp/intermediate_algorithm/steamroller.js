@@ -7,24 +7,18 @@ import assert from 'assert'
  */
 function steamrollArray (arr) {
   let result = []
-
-  function inner (item) {
-    if (Array.isArray(item)) {
-      arr.forEach(i => {
-        result.push(i)
-      })
+  function flatten (arr) {
+    if (Array.isArray(arr)) {
+      arr.forEach(item => flatten(item))
+    } else {
+      result.push(arr)
     }
-    result.push(item)
   }
-
-  arr.map(item => {
-    inner(item)
-  })
-
+  flatten(arr)
   return result
 }
 
-// assert.deepEqual(steamrollArray([[["a"]], [["b"]]]), ["a", "b"])
+assert.deepEqual(steamrollArray([[["a"]], [["b"]]]), ["a", "b"])
 assert.deepEqual(steamrollArray([1, [2], [3, [[4]]]]), [1, 2, 3, 4])
-// assert.deepEqual(steamrollArray([1, [], [3, [[4]]]]), [1, 3, 4])
-// assert.deepEqual(steamrollArray([1, {}, [3, [[4]]]]), [1, {}, 3, 4])
+assert.deepEqual(steamrollArray([1, [], [3, [[4]]]]), [1, 3, 4])
+assert.deepEqual(steamrollArray([1, {}, [3, [[4]]]]), [1, {}, 3, 4])
