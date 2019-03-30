@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sander bike</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+    // когда загружается страница
+    $(document).ready(function () {
+      let tableData = []
+
+      // берём массив велосипедистов у гугла и записываем в таблицу
+      $.getJSON('https://script.google.com/macros/s/AKfycbw6-Av7o0ruVNVrWUuIPgPCcGr9-x0GToOZdrUgFlROAKFYx08/exec', function ({ result }) {
+        tableData = result
+        updateTable(result)
+      })
+
+      // при изменении строки поиска фильтруем массив велосипедистов
+      $('.table-wrapper .search').on('input', event => {
+        filteredTableData = tableData.filter(item => item[0].toLowerCase().includes(event.target.value.toLowerCase()))
+        updateTable(filteredTableData)
+        if (filteredTableData.length) {
+          $('.table-wrapper .not-found').hide()
+        } else {
+          $('.table-wrapper .not-found').show()
+        }
+      })
+
+      // размещение массива велосипедистов на странице
+      function updateTable (data) {
+        // создаём пустую строку
+        let resultHTML = ''
+
+        // добавляем каждый элемент полученного у гугла массива в эту строку в виде строки таблицы HTML
+        data.forEach(item => {
+          resultHTML += `<tr>
+            <td>${item[0]}</td>
+            <td>${item[1].substr(0, 10)}</td>
+            <td>${item[2]}</td>
+            <td>${item[3]}</td>
+          </tr>`
+        })
+
+        // помещаем получившийся HTML в tbody таблицы в блоке с классом table-wrapper
+        $('.table-wrapper tbody').html(resultHTML)
+      }
+    })
+  </script>
+
+  <style>
+    .table-wrapper .search {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    .table-wrapper .not-found {
+      text-align: center;
+      display: none;
+    }
+    .table-wrapper table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .table-wrapper th,
+    .table-wrapper td {
+      padding: 5px;
+      border: 1px solid;
+    }
+  </style>
+</head>
+<body>
+<div class="table-wrapper">
+  <input class="search">
+
+  <table>
+    <thead>
+    <tr>
+      <th>Имя</th>
+      <th>Дата</th>
+      <th>Категория</th>
+      <th>Клуб</th>
+    </tr>
+    </thead>
+    <tbody>
+      <!-- Здесь будут данные из гугл-таблицы -->
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" class="not-found">
+          Никого не найдено
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+</body>
+</html>
