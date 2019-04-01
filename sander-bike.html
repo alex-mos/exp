@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Sander bike</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <script>
@@ -36,7 +37,7 @@
         data.forEach(item => {
           resultHTML += `<tr>
             <td>${item[0]}</td>
-            <td>${item[1].substr(0, 10)}</td>
+            <td>${item[1].substr(0, 4)}</td>
             <td>${item[2]}</td>
             <td>${item[3]}</td>
           </tr>`
@@ -49,49 +50,78 @@
   </script>
 
   <style>
-    .table-wrapper .search {
-      margin-bottom: 20px;
-      font-size: 20px;
+    .table-wrapper {
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
     }
+
+    .table-wrapper .search {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
     .table-wrapper .not-found {
       text-align: center;
       display: none;
     }
+
     .table-wrapper table {
       border-collapse: collapse;
       width: 100%;
     }
+
     .table-wrapper th,
     .table-wrapper td {
+      text-align: left;
       padding: 5px;
-      border: 1px solid;
     }
+
+    .table-wrapper thead {
+      border-bottom: 2px solid #ddd;
+    }
+
+    .table-wrapper tr {
+      border-top: 1px solid #ddd;
+    }
+
+    .table-wrapper tr:nth-child(even) {
+      background-color: rgba(0,0,0,.05);
+    }
+
   </style>
 </head>
-<body>
-<div class="table-wrapper">
-  <input class="search">
 
-  <table>
-    <thead>
-    <tr>
-      <th>Имя</th>
-      <th>Дата</th>
-      <th>Категория</th>
-      <th>Клуб</th>
-    </tr>
-    </thead>
-    <tbody>
+<body>
+<div class="t-container table-wrapper">
+  <div class="t-col t-col_10 t-prefix_1">
+
+    <input
+      class="search"
+      placeholder="Поиск">
+
+    <table>
+      <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Год</th>
+        <th>Категория</th>
+        <th>Клуб</th>
+      </tr>
+      </thead>
+      <tbody>
       <!-- Здесь будут данные из гугл-таблицы -->
-    </tbody>
-    <tfoot>
+      </tbody>
+      <tfoot>
       <tr>
         <td colspan="4" class="not-found">
-          Никого не найдено
+          Не найдено
         </td>
       </tr>
-    </tfoot>
-  </table>
+      </tfoot>
+    </table>
+  </div>
 </div>
+
 </body>
 </html>
