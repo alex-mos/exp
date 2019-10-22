@@ -1,6 +1,6 @@
 const assert = require('assert')
 
-const bouncer = (arr) => arr.filter(item => Boolean(item))
+const bouncer = arr => arr.filter(Boolean)
 
 assert.deepEqual(bouncer([7, "ate", "", false, 9]), [7, "ate", 9])
 assert.deepEqual(bouncer(["a", "b", "c"]), ["a", "b", "c"])

@@ -1,11 +1,31 @@
-import test from 'ava';
+console.log('name: ', name)
+console.log('handle: ', handle)
+console.log('getUser :', getUser)
 
-test('foo', t => {
-	t.pass();
-});
+var name = 'Tyler'
+var handle = '@tylermcginnis'
 
-test('bar', async t => {
-	const bar = Promise.resolve('bar');
+function getUser () {
+  return {
+    name: name,
+    handle: handle
+  }
+}
 
-	t.is(await bar, 'bar');
-});
+
+
+
+
+function findLongestWordLength(str) {
+  let oldWord = ''
+
+  str.split(' ').forEach(word => {
+    if (word.length > oldWord.length) {
+      oldWord = word
+    }
+    console.log(oldWord)
+  })
+  return oldWord.length
+}
+
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"))

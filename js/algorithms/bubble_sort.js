@@ -1,4 +1,4 @@
-const assert = require('assert')
+import assert from 'assert'
 
 const sort = (arr) => {
   for (let j = 0; j < arr.length; j++) {
@@ -14,5 +14,5 @@ const sort = (arr) => {
   return arr
 }
 
-assert.deepEqual(sort([3, 1, 2]), [1, 2, 3])
-assert.deepEqual(sort([3, 4, 1, 2]), [1, 2, 3, 4])
+assert.strict.deepEqual(sort([3, 1, 2]), [1, 2, 3])
+assert.strict.deepEqual(sort([3, 4, 1, 2]), [1, 2, 3, 4])
