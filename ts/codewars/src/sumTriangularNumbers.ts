@@ -1,5 +1,5 @@
 export default function sumTriangularNumbers (num: number): number {
-  let result: Array<number> = []
+  let result: number[] = []
   let counter: number = 1
   let row: number = 1
   let rowInnerCounter = 1
