@@ -1,4 +1,5 @@
 import menFromBoys from '../menFromBoys';
+import mexicanWave from '../mexicanWave';
 import removeChar from '../removeChar';
 import getSize from '../getSize';
 import reversedStrings from '../reversedStrings';
@@ -57,5 +58,21 @@ describe("menFromBoys", function() {
     assert.deepEqual(menFromBoys([82, -61, -87, -12, 21, 1]), [-12, 82, 21, 1, -61, -87]);
     assert.deepEqual(menFromBoys([63, -57, 76, -85, 88, 2, -28]), [-28, 2, 76, 88, 63, -57, -85]);
     assert.deepEqual(menFromBoys([49, 818, -282, 900, 928, 281, -282, -1]), [-282, 818, 900, 928, 281, 49, -1]);
+  });
+});
+
+describe("mexicanWave", function() {
+  it("basic tests", function() {
+    let result: string[];
+    result = ["Hello", "hEllo", "heLlo", "helLo", "hellO"];
+    assert.deepEqual(mexicanWave("hello"), result, "Should return: '"+result+"'");
+    result = ["Codewars", "cOdewars", "coDewars", "codEwars", "codeWars", "codewArs", "codewaRs", "codewarS"];
+    assert.deepEqual(mexicanWave("codewars"), result, "Should return: '"+result+"'");
+    result = [];
+    assert.deepEqual(mexicanWave(""), result, "Should return: '"+result+"'");
+    result = ["Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"];
+    assert.deepEqual(mexicanWave("two words"), result, "Should return: '"+result+"'");
+    result = [" Gap ", " gAp ", " gaP "];
+    assert.deepEqual(mexicanWave(" gap "), result, "Should return: '"+result+"'");
   });
 });
