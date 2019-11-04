@@ -1,5 +1,6 @@
-import menFromBoys from '../menFromBoys';
-import mexicanWave from '../mexicanWave';
+import mazeRunner from '../6_mazeRunner'
+import menFromBoys from '../7_menFromBoys';
+import mexicanWave from '../6_mexicanWave';
 import removeChar from '../removeChar';
 import getSize from '../getSize';
 import reversedStrings from '../reversedStrings';
@@ -22,8 +23,8 @@ describe('getSize', () => {
   });
 });
 
-describe("reversedStrings", function(){
-  it("basic tests", function() {
+describe('reversedStrings', function(){
+  it('basic tests', function() {
     assert.equal(reversedStrings('world'), 'dlrow');
     assert.equal(reversedStrings('hello'), 'olleh');
     assert.equal(reversedStrings(''), '');
@@ -31,8 +32,8 @@ describe("reversedStrings", function(){
   });
 });
 
-describe("sumTriangularNumbers", function(){
-  it("basic tests", function() {
+describe('sumTriangularNumbers', function(){
+  it('basic tests', function() {
     assert.equal(sumTriangularNumbers(6), 56);
     assert.equal(sumTriangularNumbers(34), 7140);
     assert.equal(sumTriangularNumbers(-291), 0);
@@ -41,8 +42,8 @@ describe("sumTriangularNumbers", function(){
   });
 });
 
-describe("menFromBoys", function() {
-  it("basic tests", function() {
+describe('menFromBoys', function() {
+  it('basic tests', function() {
     assert.deepEqual(menFromBoys([7, 3, 14, 17]), [14, 17, 7, 3]);
     assert.deepEqual(menFromBoys([2, 43, 95, 90, 37]), [2, 90, 95, 43, 37]);
     assert.deepEqual(menFromBoys([20, 33, 50, 34, 43, 46]), [20, 34, 46, 50, 43, 33]);
@@ -61,8 +62,8 @@ describe("menFromBoys", function() {
   });
 });
 
-describe("mexicanWave", function() {
-  it("basic tests", function() {
+describe('mexicanWave', function() {
+  it('basic tests', function() {
     let result: string[];
     result = ["Hello", "hEllo", "heLlo", "helLo", "hellO"];
     assert.deepEqual(mexicanWave("hello"), result, "Should return: '"+result+"'");
@@ -74,5 +75,43 @@ describe("mexicanWave", function() {
     assert.deepEqual(mexicanWave("two words"), result, "Should return: '"+result+"'");
     result = [" Gap ", " gAp ", " gaP "];
     assert.deepEqual(mexicanWave(" gap "), result, "Should return: '"+result+"'");
+  });
+});
+
+describe('mazeRunner', function() {
+  let maze = [
+    [1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,3],
+    [1,0,1,0,1,0,1],
+    [0,0,1,0,0,0,1],
+    [1,0,1,0,1,0,1],
+    [1,0,0,0,0,0,1],
+    [1,2,1,0,1,0,1]
+  ];
+
+  it('basic tests', function() {
+    assert.equal(mazeRunner(maze,['N','N','N','N','N','E','E','E','E','E']), 'Finish');
+    assert.equal(mazeRunner(maze,['N','N','N','N','N','E','E','S','S','E','E','N','N','E']), 'Finish');
+    assert.equal(mazeRunner(maze,['N','N','N','N','N','E','E','E','E','E','W','W']), 'Finish');
+    assert.equal(mazeRunner(maze,['N','N','N','W','W']), 'Dead');
+    assert.equal(mazeRunner(maze,['N','N','N','N','N','E','E','S','S','S','S','S','S']), 'Dead');
+    assert.equal(mazeRunner(maze,['N','E','E','E','E']), 'Lost');
+    assert.equal(mazeRunner(maze,['N','E','E','E','E', 'S']), 'Lost');
+    assert.equal(mazeRunner(maze,['N','E','E','E','E', 'S', 'W']), 'Dead');
+  });
+
+  maze = [
+    [2,0,1,1],
+    [1,0,0,0],
+    [1,0,1,3],
+    [0,0,0,0],
+  ];
+
+  it('second tests', function() {
+    assert.equal(mazeRunner(maze, ['E', 'S', 'S', 'S', 'E', 'E', 'N']), 'Finish');
+    assert.equal(mazeRunner(maze, ['E', 'S', 'E', 'E', 'S']), 'Finish');
+    assert.equal(mazeRunner(maze, ['E', 'S', 'W']), 'Dead');
+    assert.equal(mazeRunner(maze, ['E', 'S', 'S', 'S', 'S']), 'Dead');
+    assert.equal(mazeRunner(maze, ['E', 'S', 'E', 'E']), 'Lost');
   });
 });
