@@ -1,4 +1,4 @@
-module.exports = diffArray = (arr1, arr2) => {
+export default function diffArray (arr1, arr2) {
   let result = []
   arr1.map(item => {
     if (!arr2.includes(item)) {

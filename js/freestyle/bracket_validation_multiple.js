@@ -1,5 +1,5 @@
 // Bracket sequence with multiple bracket type
-function isBracketSequenceValid(bracketSequence) {
+export default function isBracketSequenceValid(bracketSequence) {
   let openingBrackets = {
     '(': ')',
     '[': ']',
@@ -27,5 +27,3 @@ function isBracketSequenceValid(bracketSequence) {
 
   return stack.length === 0
 }
-
-module.exports = isBracketSequenceValid

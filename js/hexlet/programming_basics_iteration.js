@@ -25,7 +25,6 @@ const smallestDivisor = (n) => {
     if (current === 0) {
       return acc
     }
-    if current /
     return iter(current - 1)
   }
   return iter(n)

@@ -1,4 +1,4 @@
-class CircularQueue {
+export default class CircularQueue {
   constructor(size) {
     this.queue = []
     this.read = 0
@@ -40,5 +40,3 @@ class CircularQueue {
     return null
   }
 }
-
-module.exports = CircularQueue
