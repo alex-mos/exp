@@ -1,4 +1,5 @@
 import convertToRoman from '../convertToRoman'
+import { rot13 } from '../caesarsCipher'
 import { expect } from 'chai'
 
 describe('convertToRoman', () => {
@@ -43,5 +44,14 @@ describe('convertToRoman', () => {
     expect(convertToRoman(19)).to.equal('XIX')
     expect(convertToRoman(22)).to.equal('XXII')
     expect(convertToRoman(15)).to.equal('XV')
+  })
+})
+
+describe('caesarsCipher rot13', () => {
+  it('freecodecamp', () => {
+    expect(rot13("SERR PBQR PNZC")).to.equal('FREE CODE CAMP')
+    expect(rot13("SERR CVMMN!")).to.equal('FREE PIZZA!')
+    expect(rot13("SERR YBIR?")).to.equal('FREE LOVE?')
+    expect(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.")).to.equal('THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.')
   })
 })
