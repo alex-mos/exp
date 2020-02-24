@@ -1,4 +1,4 @@
-import {assert, expect} from 'chai'
+import {assert} from 'chai'
 import {G964} from '../5_caesarsCipher1'
 
 describe('caesarsCipher G964', () => {
