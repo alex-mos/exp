@@ -1,31 +1,27 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 
-const defaultState = {
-  user: 'CamperBot',
-  status: 'offline',
-  friends: '732,982',
-  community: 'freeCodeCamp'
-};
+const ADD = 'ADD'
 
-const immutableReducer = (state = defaultState, action) => {
-  switch(action.type) {
-    case 'ONLINE':
-      return Object.assign(state, { status: 'online'})
-    default:
-      return state;
-  }
-};
+const initialState = []
 
-const wakeUp = () => {
+function messageReducer(state = initialState, action) {
+    switch(action.type) {
+        case ADD:
+            return state.concat(action.message)
+        default:
+          return state
+    }
+}
+
+function addMessage(message) {
   return {
-    type: 'ONLINE'
+      type: ADD,
+      message
   }
-};
+}
 
-
-
-const store = createStore(immutableReducer)
+const store = createStore(messageReducer)
 
 console.log(store.getState())
-store.dispatch(wakeUp())
+store.dispatch(addMessage('asdf'))
 console.log(store.getState())
