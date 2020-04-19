@@ -1,5 +1,8 @@
 import React from 'react';
+import { Provider, connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import store from './store'
+import { addMessage } from './store'
 import './App.css';
 
 
@@ -45,7 +48,11 @@ class DisplayMessages extends React.Component {
 
 
 function App() {
-  return <DisplayMessages />
+  return (
+    <Provider store={store}>
+      <DisplayMessages />
+    </Provider>
+  )
 }
 
 export default App;

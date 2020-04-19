@@ -9,7 +9,7 @@ function messageReducer(state = initialState, action) {
         case ADD:
             return state.concat(action.message)
         default:
-          return state
+            return state
     }
 }
 
