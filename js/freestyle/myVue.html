@@ -1,0 +1,67 @@
+<html>
+<body>
+  <div id="app"></div>
+
+  <script>
+    const App = {
+      template: function () {
+        return `
+          Сообщение: ${this.msg}<br>
+          Счетчик: ${this.counter}
+          <button onClick=${this.increment}>добавить</button>
+        `
+      },
+      data: {
+        msg: 'initial message',
+        counter: 1,
+      },
+      mounted() {
+        setTimeout(() => {
+          this.msg = 'message updated after 3 seconds after initialization'
+        }, 3000);
+      },
+      methods: {
+        increment() {
+          this.counter++
+        },
+        decrement() {
+          this.counter--
+        }
+      }
+    };
+
+    function myVue(selector, cmp) {
+      // отрендерить компонент в элемент, выбранный по селектору
+      const root = document.querySelector(selector);
+      function render() {
+        root.innerHTML = cmp.template.call(cmp.data);
+      };
+      render();
+
+      const dataKeys = Object.keys(cmp.data);
+
+      dataKeys.forEach((key) => {
+        Object.defineProperty(cmp, key, {
+          enumerable: true,
+          configurable: true,
+          get: function() {
+            return cmp.data[key];
+          },
+          set: function(newValue) {
+            cmp.data[key] = newValue;
+            setTimeout(render, 0);
+          },
+        });
+      });
+
+      if (cmp.mounted) {
+        cmp.mounted();
+      }
+
+      window.cmp = cmp; // for debug purpose
+    }
+
+    myVue('#app', App);
+  </script>
+</body>
+</html>
