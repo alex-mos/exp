@@ -6,3 +6,5 @@ temp.js
 dist/
 uploads/
 tabtracker.sqlite
+*.out
+scratch.*
