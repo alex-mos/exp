@@ -1,5 +1,3 @@
-import assert from 'assert'
-
 const sort = (arr) => {
   for (let j = 0; j < arr.length; j++) {
     for (let i = 0; i < arr.length - 1; i++) {

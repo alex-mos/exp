@@ -1,5 +1,5 @@
 function mystery() {
-	return {sanity: 'Hello'};
+  return {sanity: 'Hello'}
 }
 
 console.log(mystery().sanity)

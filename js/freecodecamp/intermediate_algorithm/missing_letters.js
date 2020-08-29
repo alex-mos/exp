@@ -1,11 +1,11 @@
 const assert = require('assert')
 
 const fearNotLetter = (str) => {
-  debugger;
-  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
-  let result = []
-  let start = alphabet.indexOf(str[0])
-  let finish = alphabet.indexOf(str[str.length - 1])
+  debugger
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
+  const result = []
+  const start = alphabet.indexOf(str[0])
+  const finish = alphabet.indexOf(str[str.length - 1])
   let strItem = 0
   for (let i = start; i < finish; i++) {
     if (alphabet[i] === str[strItem]) {

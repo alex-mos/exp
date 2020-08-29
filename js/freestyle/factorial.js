@@ -1,6 +1,6 @@
-const assert = require('assert');
+const assert = require('assert')
 
-const factorialize = function (num) {
+const factorialize = function(num) {
   if (num === 0) return 1
   return num * factorialize(num - 1)
 }

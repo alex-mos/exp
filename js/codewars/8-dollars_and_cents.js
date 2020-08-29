@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
 /* My */
 
-//var formatMoney = function(amount) {
+// var formatMoney = function(amount) {
 //	var amountStr = amount.toString();
 //	if (amountStr.lastIndexOf('.') != -1) {
 //		switch (amountStr.length - amountStr.lastIndexOf('.')) {
@@ -15,13 +15,13 @@
 //	} else {
 //		return '$' + amountStr + '.00';
 //	}
-//};
+// };
 
 /* Best */
 
-var formatMoney = amt => '$' + amt.toFixed(2);
+var formatMoney = (amt) => '$' + amt.toFixed(2)
 
 /* Usage */
 
-console.log(formatMoney(3));
-console.log(formatMoney(3.99));
+console.log(formatMoney(3))
+console.log(formatMoney(3.99))

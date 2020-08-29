@@ -7,12 +7,12 @@ let target
 // target = Number(contents[0])
 // numbers = contents[1].split(' ').map(element => Number(element))
 
- 
-const rr = fs.createReadStream('./input.txt') 
+
+const rr = fs.createReadStream('./input.txt')
 
 rr.on('readable', () => {
-  console.log(rr.read());
-});
+  console.log(rr.read())
+})
 
 
 // fs.writeFileSync('./output.txt', String(hasPair(numbers, target)))

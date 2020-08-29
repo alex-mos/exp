@@ -1,8 +1,8 @@
-"use strict";
+'use strict'
 
-/*** My ***/
+/** * My ***/
 
-//var digitSum = (str) => {
+// const digitSum = (str) => {
 //	str = str.split('');
 //
 //	str = str.reduce((sum, char) => {
@@ -12,15 +12,15 @@
 //	str = str.toString();
 //
 //	return str.length > 1 ? digitSum(str) : str;
-//};
+// };
 
-/*** Best ***/
+/** * Best ***/
 
-function digitSum (str) {
-	let sum = String([...str].map(Number).reduce((a, b) => a + b, 0));
-	return sum.length > 1 ? digitSum(sum) : sum;
+function digitSum(str) {
+  const sum = String([...str].map(Number).reduce((a, b) => a + b, 0))
+  return sum.length > 1 ? digitSum(sum) : sum
 }
 
-/*** Usage ***/
+/** * Usage ***/
 
-console.log(digitSum('123'));
+console.log(digitSum('123'))

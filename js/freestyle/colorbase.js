@@ -60,8 +60,8 @@ const colors = {
   greenyellow: '#adff2f',
   honeydew: '#f0fff0',
   hotpink: '#ff69b4',
-  Indianred : '#cd5c5c',
-  Indigo : '#4b0082',
+  Indianred: '#cd5c5c',
+  Indigo: '#4b0082',
   Ivory: '#fffff0',
   Khaki: '#f0e68c',
   lavender: '#e6e6fa',
@@ -148,7 +148,7 @@ const colors = {
   white: '#ffffff',
   whitesmoke: '#f5f5f5',
   yellow: '#ffff00',
-  yellowgreen: '#9acd32'
+  yellowgreen: '#9acd32',
 }
 
 mongo.connect('mongodb://localhost:27017/colors', (err, db) => {
@@ -158,8 +158,8 @@ mongo.connect('mongodb://localhost:27017/colors', (err, db) => {
   for (key in colors) {
     collection.insert({
       name: key,
-      hex: colors[key]
+      hex: colors[key],
     })
   }
-  db.close();
+  db.close()
 })

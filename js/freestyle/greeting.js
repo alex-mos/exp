@@ -1,5 +1,5 @@
 var greeting = () => {
-	console.log('Hello!');
-};
+  console.log('Hello!')
+}
 
-module.exports = greeting;
+module.exports = greeting

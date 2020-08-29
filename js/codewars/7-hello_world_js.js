@@ -1,4 +1,4 @@
-const say = string1 => string2 => `${string1} ${string2}`
+const say = (string1) => (string2) => `${string1} ${string2}`
 
 /* test */
 const assert = require('assert')

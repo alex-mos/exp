@@ -1,4 +1,3 @@
-function nextId (ids) {
-
-	return 0;
+function nextId(ids) {
+  return 0
 }

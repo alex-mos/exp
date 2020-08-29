@@ -1,4 +1,4 @@
-function rgb(r, g, b){
+function rgb(r, g, b) {
   return decimalToHex(r) + decimalToHex(g) + decimalToHex(b)
 }
 
@@ -27,4 +27,4 @@ assert.equal(decimalToHex(211), 'D3')
 assert.equal(rgb(255, 255, 255), 'FFFFFF')
 assert.equal(rgb(148, 0, 211), '9400D3')
 assert.equal(rgb(0, 0, -20), '000000')
-assert.equal(rgb(300,255,255), 'FFFFFF')
+assert.equal(rgb(300, 255, 255), 'FFFFFF')

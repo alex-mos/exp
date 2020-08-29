@@ -1,31 +1,31 @@
-var gLogNumber, gIncreaseNumber, gSetNumber;
+var gLogNumber; var gIncreaseNumber; var gSetNumber
 function setupSomeGlobals() {
-	// Local variable that ends up within closure
-	var num = 42;
+  // Local variable that ends up within closure
+  let num = 42
 
-	// Store some references to functions as global variables
-	gLogNumber = function () {
-		console.log(num);
-	};
+  // Store some references to functions as global variables
+  gLogNumber = function() {
+    console.log(num)
+  }
 
-	gIncreaseNumber = function () {
-		num++;
-	};
+  gIncreaseNumber = function() {
+    num++
+  }
 
-	gSetNumber = function (x) {
-		num = x;
-	}
+  gSetNumber = function(x) {
+    num = x
+  }
 }
 
-setupSomeGlobals();
-gIncreaseNumber();
-gLogNumber(); // 43
-gSetNumber(5);
-gLogNumber(); // 5
+setupSomeGlobals()
+gIncreaseNumber()
+gLogNumber() // 43
+gSetNumber(5)
+gLogNumber() // 5
 
-var oldLog = gLogNumber;
+var oldLog = gLogNumber
 
-setupSomeGlobals();
-gLogNumber(); // 42
+setupSomeGlobals()
+gLogNumber() // 42
 
-oldLog(); // 5
+oldLog() // 5

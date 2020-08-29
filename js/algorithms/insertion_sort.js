@@ -1,5 +1,3 @@
-const assert = require('assert')
-
 const sort = (arr) => {
   let i
 

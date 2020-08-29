@@ -1,5 +1,5 @@
 class Map {
-  constructor () {
+  constructor() {
     this.collection = {}
   }
   add(key, value) {

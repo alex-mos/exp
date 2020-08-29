@@ -1,5 +1,3 @@
-import assert from 'assert'
-
 function selectionSort (arr) {
   for (let i = 0; i < arr.length()
   return arr

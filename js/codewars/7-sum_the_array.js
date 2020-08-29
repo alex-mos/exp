@@ -1,7 +1,7 @@
 const assert = require('assert')
 
 Array.prototype.sum = function() {
-	return this.reduce((sum, el) => sum + el, 0)
+  return this.reduce((sum, el) => sum + el, 0)
 }
 
 assert.equal([].sum(), 0)

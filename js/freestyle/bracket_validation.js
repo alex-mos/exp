@@ -3,7 +3,7 @@ function isBracketSequenceValid(bracketSequence) {
   let count = 0
   let result = true
 
-  for (let bracket of bracketSequence) {
+  for (const bracket of bracketSequence) {
     if (bracket === '(') {
       count++
     }

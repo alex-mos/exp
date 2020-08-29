@@ -1,11 +1,9 @@
-import assert from 'assert'
-
 /**
  * Является ли число num простым?
  * @param num
- * @returns {boolean}
+ * @return {boolean}
  */
-function isPrime (num) {
+function isPrime(num) {
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
       return false
@@ -17,9 +15,9 @@ function isPrime (num) {
 /**
  * Возвращает сумму всех простых чисел меньше или равных num
  * @param {number} num
- * @returns {number}
+ * @return {number}
  */
-function sumPrimes (num) {
+function sumPrimes(num) {
   let result = 0
   for (let i = 2; i <= num; i++) {
     if (isPrime(i)) {

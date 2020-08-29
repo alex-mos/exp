@@ -1,27 +1,27 @@
-function createCounter () {
-	var numberOfCalls = 0;
+function createCounter() {
+  let numberOfCalls = 0
 
-	return function () {
-		return ++numberOfCalls;
-	}
+  return function() {
+    return ++numberOfCalls
+  }
 }
 
-//var fn = createCounter();
+// var fn = createCounter();
 
-//console.log(fn()); // 1
-//console.log(fn()); // 2
-//console.log(fn()); // 3
+// console.log(fn()); // 1
+// console.log(fn()); // 2
+// console.log(fn()); // 3
 
 /***/
 
-var fn = (function () {
-	var numberOfCalls = 0;
+var fn = (function() {
+  let numberOfCalls = 0
 
-	return function () {
-		return ++numberOfCalls;
-	}
-})();
+  return function() {
+    return ++numberOfCalls
+  }
+})()
 
-console.log(fn()); // 1
-console.log(fn()); // 2
-console.log(fn()); // 3
+console.log(fn()) // 1
+console.log(fn()) // 2
+console.log(fn()) // 3

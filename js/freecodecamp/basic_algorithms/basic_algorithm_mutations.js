@@ -1,5 +1,3 @@
-import assert from 'assert'
-
 export default function addDigits(num) {
   if (String(num).length === 1) {
     return num

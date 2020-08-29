@@ -12,5 +12,5 @@ const repeatStringNumTimes = (str, num) => {
   }
 }
 
-assert.equal(repeatStringNumTimes("*", 3), '***')
-assert.equal(repeatStringNumTimes("abc", -2), '')
+assert.equal(repeatStringNumTimes('*', 3), '***')
+assert.equal(repeatStringNumTimes('abc', -2), '')

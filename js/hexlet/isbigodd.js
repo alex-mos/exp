@@ -5,16 +5,16 @@ var isBigOdd = (num) => num > 1000 ? (num % 2 ? true : false) : false
 var isBigOdd = (num) => num % 2 !== 0 && num > 1000
 
 // dumb
-var isBigOdd = function (num) {
-	if (num > 1000) {
-		if (num % 2) {
-			return true
-		} else {
-			return false
-		}
-	} else {
-		return false
-	}
+var isBigOdd = function(num) {
+  if (num > 1000) {
+    if (num % 2) {
+      return true
+    } else {
+      return false
+    }
+  } else {
+    return false
+  }
 }
 
 console.log(isBigOdd(3))

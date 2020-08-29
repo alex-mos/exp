@@ -9,13 +9,13 @@ var removeElement = function(nums, val) {
   })
   // mutate initial array
   nums.splice(0)
-  for (let num of result) {
+  for (const num of result) {
     nums.push(num)
   }
   return nums.length
-};
+}
 
-let a = [0,1,2,2,3,0,4,2]
-assert.deepEqual(a, [0,1,2,2,3,0,4,2])
+const a = [0, 1, 2, 2, 3, 0, 4, 2]
+assert.deepEqual(a, [0, 1, 2, 2, 3, 0, 4, 2])
 assert.equal(removeDuplicates(a, 2), 5)
-assert.deepEqual(a, [0,1,3,0,4])
+assert.deepEqual(a, [0, 1, 3, 0, 4])

@@ -2,7 +2,7 @@ const assert = require('assert')
 
 // sorted array of numbers 1...100 generation
 const generateArray = (len) => {
-  let result = []
+  const result = []
   for (let i = 0; i < len; i++) {
     result.push(Math.floor(Math.random() * 100) + 1)
   }
@@ -13,11 +13,11 @@ assert.equal(generateArray(5).length, 5)
 
 // get random number from array
 const randomElement = (arr) => {
-  let index =  Math.floor(Math.random() * arr.length);
+  const index = Math.floor(Math.random() * arr.length)
   return arr[index]
 }
 
-let testArray = generateArray(10)
+const testArray = generateArray(10)
 assert.equal(testArray.includes(randomElement(testArray)), true)
 
 // linear search
@@ -39,8 +39,8 @@ const binSearch = (arr, targetValue) => {
   let min = 0
   let max = arr.length - 1
   let guess
-  function makeGuess () {
-     guess = Math.floor(((max - min) / 2) + min)
+  function makeGuess() {
+    guess = Math.floor(((max - min) / 2) + min)
   }
   makeGuess()
 
@@ -62,8 +62,8 @@ const binSearch = (arr, targetValue) => {
   return guess
 }
 
-let array = generateArray(100)
-let targetValue = randomElement(array)
+const array = generateArray(100)
+const targetValue = randomElement(array)
 console.log(`target value is ${targetValue}`)
 linearSearch(array, targetValue)
 binSearch(array, targetValue)

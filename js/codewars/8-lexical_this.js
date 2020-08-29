@@ -1,22 +1,21 @@
-"use strict";
+'use strict'
 
-/*** My ***/
+/** * My ***/
 
-var Person = function () {
-	var person = {
-		_name: "Leroy",
-		_friends: [],
-		fillFriends(f) {
+var Person = function() {
+  const person = {
+    _name: 'Leroy',
+    _friends: [],
+    fillFriends(f) {
 
-		}
-	};
+    },
+  }
 
-	return person;
-};
+  return person
+}
 
-/*** Best ***/
+/** * Best ***/
 
 
-
-/*** Usage ***/
+/** * Usage ***/
 

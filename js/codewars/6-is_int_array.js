@@ -1,14 +1,14 @@
-/*** My ***/
+/** * My ***/
 
-//isIntArray = (arr) => arr ? arr.every(Number.isSafeInteger) : false;
+// isIntArray = (arr) => arr ? arr.every(Number.isSafeInteger) : false;
 
-/*** Best ***/
+/** * Best ***/
 
-isIntArray = (arr) => Array.isArray(arr) && arr.every(Number.isSafeInteger);
+isIntArray = (arr) => Array.isArray(arr) && arr.every(Number.isSafeInteger)
 
 
-/*** Usage ***/
+/** * Usage ***/
 
-console.log(isIntArray([1, 2, 3, 4]));
-console.log(isIntArray([1, 2, 3, NaN]));
-console.log(isIntArray([]));
+console.log(isIntArray([1, 2, 3, 4]))
+console.log(isIntArray([1, 2, 3, NaN]))
+console.log(isIntArray([]))

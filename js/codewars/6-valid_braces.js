@@ -1,11 +1,11 @@
-function validBraces (str) {
+function validBraces(str) {
   const braces = {
     '(': ')',
     '{': '}',
-    '[': ']'
+    '[': ']',
   }
   const stack = []
-  for (let brace of str.split('')) {
+  for (const brace of str.split('')) {
     // opening braces
     if (Object.keys(braces).includes(brace)) stack.push(brace)
     // closing braces
@@ -18,7 +18,7 @@ function validBraces (str) {
   return stack.length === 0
 }
 
-assert.equal(validBraces("(){}[]"), true)
-assert.equal(validBraces("(}"), false)
-assert.equal(validBraces("[(])"), false)
-assert.equal(validBraces("([{}])"), true)
+assert.equal(validBraces('(){}[]'), true)
+assert.equal(validBraces('(}'), false)
+assert.equal(validBraces('[(])'), false)
+assert.equal(validBraces('([{}])'), true)

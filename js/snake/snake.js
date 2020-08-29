@@ -41,7 +41,7 @@
       return this._position
     }
   }
-  let apple = new Apple()
+  const apple = new Apple()
 
 
   function Snake(body, direction, color) {
@@ -52,7 +52,7 @@
     this.afterTail = null
 
     this.draw = function() {
-      switch(this.direction) {
+      switch (this.direction) {
         case 'right':
           this.body.push([this.head[0] + 1, this.head[1]])
           this.afterTail = this.body.shift()
@@ -73,7 +73,7 @@
 
       this.head = body[body.length - 1]
 
-      this.body.forEach(point => {
+      this.body.forEach((point) => {
         ctx.fillStyle = this.color
         ctx.fillRect(point[0] * gridStep + 2, point[1] * gridStep + 2, gridStep - 4, gridStep - 4)
       })
@@ -109,7 +109,7 @@
   }
   const snake = new Snake(body = [[1, 1], [2, 1], [3, 1]], direction = null, color = 'black')
   const snake2 = new Snake(body = [[48, 48], [47, 48], [46, 48]], direction = null, color = 'red')
-  
+
 
   drawField()
   apple.draw()

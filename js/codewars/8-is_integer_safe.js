@@ -1,16 +1,16 @@
-"use strict";
+'use strict'
 
-/*** My ***/
+/** * My ***/
 
-//function SafeInteger (n) {
+// function SafeInteger (n) {
 //	return n < Math.abs(Math.pow(2, 53));
-//}
+// }
 
-/*** Best ***/
+/** * Best ***/
 
-var SafeInteger = Number.isSafeInteger; // Функция проверяет, является ли число безопасным (53-битным) интеджером.
+var SafeInteger = Number.isSafeInteger // Функция проверяет, является ли число безопасным (53-битным) интеджером.
 
-/*** Usage ***/
+/** * Usage ***/
 
-console.log(SafeInteger(213434));
-console.log(SafeInteger(9007199254740992));
+console.log(SafeInteger(213434))
+console.log(SafeInteger(9007199254740992))

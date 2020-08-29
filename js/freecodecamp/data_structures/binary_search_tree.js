@@ -1,7 +1,5 @@
-import assert from 'assert'
-
 class Node {
-  constructor (value) {
+  constructor(value) {
     this.value = value
     this.left = null
     this.right = null
@@ -9,14 +7,14 @@ class Node {
 }
 
 class BinarySearchTree {
-  constructor () {
+  constructor() {
     this.root = null
   }
 
-  add (value) {
+  add(value) {
     const node = this.root
     if (node) {
-      const searchTree = function (node) {
+      const searchTree = function(node) {
         if (value < node.value) {
           if (node.left) {
             searchTree(node.left)
@@ -41,11 +39,11 @@ class BinarySearchTree {
     }
   }
 
-  remove (value) {
+  remove(value) {
 
   }
 
-  isPresent (value) {
+  isPresent(value) {
     let node = this.root
     while (node) {
       if (value > node.value) {
@@ -59,7 +57,7 @@ class BinarySearchTree {
     return false
   }
 
-  findMin () {
+  findMin() {
     let node = this.root
     while (node) {
       if (node.left) {
@@ -71,7 +69,7 @@ class BinarySearchTree {
     return null
   }
 
-  findMax () {
+  findMax() {
     let node = this.root
     while (node) {
       if (node.right) {
@@ -83,18 +81,18 @@ class BinarySearchTree {
     return null
   }
 
-  findMinHeight () {
+  findMinHeight() {
 
   }
 
-  findMaxHeight () {
+  findMaxHeight() {
 
   }
 }
 
-let displayTree = tree => console.log(JSON.stringify(tree, null, 2))
+const displayTree = (tree) => console.log(JSON.stringify(tree, null, 2))
 
-let tree = new BinarySearchTree()
+const tree = new BinarySearchTree()
 
 tree.add(5)
 tree.add(3)

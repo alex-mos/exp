@@ -1,10 +1,10 @@
 const assert = require('assert')
 
 const uniteUnique = function() {
-  let result = []
-  let array = Array.prototype.slice.call(arguments);
+  const result = []
+  const array = Array.prototype.slice.call(arguments)
 
-  array.map(arr => arr.map(item => {
+  array.map((arr) => arr.map((item) => {
     if (!result.includes(item)) {
       result.push(item)
     }

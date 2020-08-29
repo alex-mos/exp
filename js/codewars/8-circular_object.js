@@ -1,5 +1,5 @@
-let circular = {
-  value: 'Hello World'
+const circular = {
+  value: 'Hello World',
 }
 
 circular.self = circular

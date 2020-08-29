@@ -2,9 +2,9 @@
 var websites = []
 
 // my
-for (var i = 0; i < 1000; i++){
-    websites.push('codewars')
+for (var i = 0; i < 1000; i++) {
+  websites.push('codewars')
 }
 
 // best practice:
-while (websites.length < 1000) websites.push("codewars")
+while (websites.length < 1000) websites.push('codewars')

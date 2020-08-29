@@ -1,5 +1,5 @@
 function numberFormat(number, separator) {
-  let parts = []
+  const parts = []
   if (number < 1000) {
     return String(number)
   }

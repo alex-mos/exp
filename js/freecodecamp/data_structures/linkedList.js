@@ -28,7 +28,7 @@ class LinkedList {
     if (currentNode.element === element) { // если удяляемый элемент находится в голове списка
       this._head = currentNode.next
     } else {
-      while(currentNode.element !== element) {
+      while (currentNode.element !== element) {
         previousNode = currentNode
         currentNode = currentNode.next
       }
@@ -52,7 +52,7 @@ class LinkedList {
     let result = -1
     let currentNode = this._head
     let index = 0
-    while(currentNode) {
+    while (currentNode) {
       if (currentNode.element === element) {
         result = index
       }
@@ -65,7 +65,7 @@ class LinkedList {
     let result
     let currentNode = this._head
     let index = 0
-    while(currentNode) {
+    while (currentNode) {
       if (index === targetIndex) {
         result = currentNode.element
       }
@@ -76,7 +76,7 @@ class LinkedList {
   }
 }
 
-let ll = new LinkedList()
+const ll = new LinkedList()
 
 ll.add('Kitten')
 ll.add('Puppy')

@@ -1,18 +1,16 @@
-import assert from 'assert'
-
-function Node (value) {
+function Node(value) {
   this.value = value
   this.left = null
   this.right = null
 }
 
-function BinarySearchTree () {
+function BinarySearchTree() {
   this.root = null
 
-  this.add = function (value) {
+  this.add = function(value) {
     const node = this.root
     if (node) {
-      const searchTree = function (node) {
+      const searchTree = function(node) {
         if (value < node.value) {
           if (node.left) {
             searchTree(node.left)
@@ -37,14 +35,14 @@ function BinarySearchTree () {
     }
   }
 
-  this.remove = function (value) {
-    let node = this.root
+  this.remove = function(value) {
+    const node = this.root
     while (node) {
 
     }
   }
 
-  this.isPresent = function (value) {
+  this.isPresent = function(value) {
     let node = this.root
     while (node) {
       if (value > node.value) {
@@ -58,7 +56,7 @@ function BinarySearchTree () {
     return false
   }
 
-  this.findMin = function () {
+  this.findMin = function() {
     let node = this.root
     while (node) {
       if (node.left) {
@@ -70,7 +68,7 @@ function BinarySearchTree () {
     return null
   }
 
-  this.findMax = function () {
+  this.findMax = function() {
     let node = this.root
     while (node) {
       if (node.right) {
@@ -84,17 +82,16 @@ function BinarySearchTree () {
 
   /* Баланс */
   // Минимальная высота дерева — это расстояние от корня до ближайшей ноды, у которой меньше двух наследников.
-  this.findMinHeight = function () {
+  this.findMinHeight = function() {
 
   }
 
-  this.findMaxHeight = function () {
-    let node = this.root
-    let maxHeight = -1
-
+  this.findMaxHeight = function() {
+    const node = this.root
+    const maxHeight = -1
   }
 
-  this.isBalanced = function () {
+  this.isBalanced = function() {
 
   }
 
@@ -109,10 +106,10 @@ function BinarySearchTree () {
   */
 
   // 3,4,5,6,7,9,10,17,20,22
-  this.inOrder = function () {
+  this.inOrder = function() {
     if (this.root) {
-      let result = []
-      let traverseInOrder = function (node) {
+      const result = []
+      const traverseInOrder = function(node) {
         node.left && traverseInOrder(node.left)
         result.push(node.value)
         node.right && traverseInOrder(node.right)
@@ -124,10 +121,10 @@ function BinarySearchTree () {
     }
   }
   // 9,4,3,6,5,7,17,10,22,20
-  this.preOrder = function () {
+  this.preOrder = function() {
     if (this.root) {
-      let result = []
-      let traversePreOrder = function (node) {
+      const result = []
+      const traversePreOrder = function(node) {
         result.push(node.value)
         node.left && traversePreOrder(node.left)
         node.right && traversePreOrder(node.right)
@@ -139,10 +136,10 @@ function BinarySearchTree () {
     }
   }
   // 3,5,7,6,4,10,20,22,17,9
-  this.postOrder = function () {
+  this.postOrder = function() {
     if (this.root) {
-      let result = []
-      let traversePostOrder = function (node) {
+      const result = []
+      const traversePostOrder = function(node) {
         node.left && traversePostOrder(node.left)
         node.right && traversePostOrder(node.right)
         result.push(node.value)
@@ -154,12 +151,12 @@ function BinarySearchTree () {
     }
   }
   // 9,4,17,3,6,10,22,5,7,20
-  this.levelOrder = function () { }
+  this.levelOrder = function() { }
 }
 
-let displayTree = tree => console.log(JSON.stringify(tree, null, 2))
+const displayTree = (tree) => console.log(JSON.stringify(tree, null, 2))
 
-let tree = new BinarySearchTree()
+const tree = new BinarySearchTree()
 tree.add(9)
 tree.add(4)
 tree.add(17)
@@ -171,7 +168,7 @@ tree.add(5)
 tree.add(7)
 tree.add(20)
 
-let tree2 = new BinarySearchTree()
+const tree2 = new BinarySearchTree()
 /*
         7
        / \

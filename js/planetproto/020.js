@@ -1,13 +1,13 @@
 // -> Create a machine object
 //    with a property motors = 4
 var machine = {
-	motors: 4
+  motors: 4,
 }
 
 // -> Create a robot object
 //    with a property friendly = true
 var robot = {
-	friendly: true
+  friendly: true,
 }
 
 // -> Create a robby object
@@ -22,16 +22,16 @@ robot.__proto__ = machine
 robby.__proto__ = robot
 
 // -> What is `robby.motors`?
-claim(robby.motors, 4);
+claim(robby.motors, 4)
 
 // -> What is `robby.friendly`?
-claim(robby.friendly, true);
+claim(robby.friendly, true)
 
 
 // ------------------------------------------------
 // Common JS exports for verification, don't modify
 module.exports = {
-	machine: machine,
-	robot:   robot,
-	robby:   robby
+  machine: machine,
+  robot: robot,
+  robby: robby,
 }

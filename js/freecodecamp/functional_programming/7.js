@@ -4,7 +4,7 @@ function sliceArray(arr, beginSlice, endSlice) {
   // Add your code above this line
 }
 
-let inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"]
+const inputAnim = ['Cat', 'Dog', 'Tiger', 'Zebra', 'Ant']
 
 // should return ["Dog", "Tiger"]
 console.log(sliceArray(inputAnim, 1, 3))

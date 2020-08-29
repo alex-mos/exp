@@ -1,5 +1,5 @@
-a();
+a()
 
-function a () {
-	console.log(10);
+function a() {
+  console.log(10)
 }

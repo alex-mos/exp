@@ -2,7 +2,7 @@ const assert = require('assert')
 
 const sumAll = (arr) => {
   let min = arr.sort((a, b) => a - b)[0]
-  let max = arr.sort((a, b) => a - b)[1]
+  const max = arr.sort((a, b) => a - b)[1]
   let result = 0
   while (min <= max) {
     result += min

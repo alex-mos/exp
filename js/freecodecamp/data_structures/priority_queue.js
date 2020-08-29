@@ -6,7 +6,7 @@ class PriorityQueue {
     this.collection.push(item)
   }
   dequeue() {
-    let sortedCollection = this.collection.sort((a, b) => a[1] - b[1])
+    const sortedCollection = this.collection.sort((a, b) => a[1] - b[1])
     return sortedCollection[0] ? sortedCollection.shift()[0] : undefined
   }
   front() {

@@ -5,25 +5,10 @@ function sym(args) {
 sym([1, 2, 3], [5, 2, 1, 4]);
 
 
-let parent = {legacy: 'parentProperty'}
-let obj = Object.create(parent)
-
-console.log(obj.legacy)
-
-obj.key = 'trap'
-obj.own = 'ownProperty'
-
-for (key in obj) {
-  console.log(obj.key)
-}
-
-for (key in obj) {
-  console.log(obj[key])
-}
-
-for (key in obj) {
-  if (obj.hasOwnProperty(key)) {
-    console.log(obj[key])
-  }
-}
-
+assert.equal(sym([1, 2, 3], [5, 2, 1, 4]), [3, 4, 5])
+assert.equal(sym([1, 2, 3, 3], [5, 2, 1, 4]), [3, 4, 5])
+assert.equal(sym([1, 2, 3], [5, 2, 1, 4, 5]), [3, 4, 5])
+assert.equal(sym([1, 2, 5], [2, 3, 5], [3, 4, 5]), [1, 4, 5)
+assert.equal(sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]), [1, 4, 5])
+assert.equal(sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]), [2, 3, 4, 6, 7])
+assert.equal(sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]), [1, 2, 4, 5, 6, 7, 8, 9])

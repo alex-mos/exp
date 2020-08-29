@@ -1,17 +1,17 @@
-/*** My ***/
+/** * My ***/
 
-//var summation = num => {
+// var summation = num => {
 //	var sum = 0;
 //	for (var i = 1; i <= num; i++) {
 //		sum += i
 //	}
 //	return sum;
-//};
+// };
 
-/*** Best ***/
+/** * Best ***/
 
-const summation = n => n * (n + 1) / 2;
+const summation = (n) => n * (n + 1) / 2
 
-/*** Usage ***/
+/** * Usage ***/
 
-console.log(summation(8));
+console.log(summation(8))

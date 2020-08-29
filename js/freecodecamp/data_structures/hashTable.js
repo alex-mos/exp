@@ -5,7 +5,7 @@ class HashTable {
 
   static hash(string) {
     let hash = ''
-    for (var i = 0; i < string.length; i++) {
+    for (let i = 0; i < string.length; i++) {
       hash += string.charCodeAt(i)
     }
     return hash
@@ -14,7 +14,7 @@ class HashTable {
     this.collection[HashTable.hash(key)] = value
   }
   remove(key) {
-    let result = this.collection[HashTable.hash(key)]
+    const result = this.collection[HashTable.hash(key)]
     this.collection[HashTable.hash(key)] = null
     return result
   }
