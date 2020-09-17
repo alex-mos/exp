@@ -18,7 +18,7 @@ function checkCashRegister(price, cash, cashInDrawer) {
   const cashInDrawerWithInfo = banknotes.map(banknote => {
     return {
       ...banknote,
-      // записать напротив названия и номинала каждой купюры, сколько денег в купюрах такого номинала находятся в кассе
+      // записать напротив названия и номинала каждой купюры, сколько денег в купюрах такого номинала находится в кассе
       amount: cashInDrawer.find(item => item[0] === banknote.name)[1]
     }
   })
