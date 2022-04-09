@@ -18,10 +18,22 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 30px 25px;
-  background-color: #21222A;
+  transition: all 200ms linear;
+  z-index: 1;
 }
 
-.navbar-title {
+.dark .navbar {
+  background-color: #21222A;
+  color: white;
+}
+
+.light .navbar {
+  background-color: white;
+  color: black;
+  box-shadow: 0 4px 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+.navbar-theme-switch {
   color: #DEEBF8;
   font-weight: 600;
   font-size: 16px;
@@ -57,6 +69,17 @@ body {
   background-position: right -150px top 180px;
   background-repeat: no-repeat;
   background-size: 300px;
+  transition: all 200ms linear;
+}
+
+.dark .main {
+  background-color: #282D35;
+  color: white;
+}
+
+.light .main {
+  background-color: white;
+  color: black;
 }
 
 .main-title {
