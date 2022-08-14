@@ -1,24 +1,57 @@
 export class G964 {
-  private static letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  private static letters = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z"
+  ]
 
-  public static movingShift (str: string, initialShift: number): string[] {
-    const shiftedString = str.split('').map((char, index) => {
-      if (this.letters.indexOf(char.toLowerCase()) !== -1) {
-        return this.shiftChar(char, initialShift + index)
-      }
-      return char
-    }).join('')
+  public static movingShift(str: string, initialShift: number): string[] {
+    const shiftedString = str
+      .split("")
+      .map((char, index) => {
+        if (this.letters.indexOf(char.toLowerCase()) !== -1) {
+          return this.shiftChar(char, initialShift + index)
+        }
+        return char
+      })
+      .join("")
     return this.split(shiftedString)
   }
 
-  public static demovingShift (arr: string[], initialShift: number): string {
-    const str = arr.join('')
-    return str.split('').map((char, index) => {
-      if (this.letters.indexOf(char.toLowerCase()) !== -1) {
-        return this.shiftChar(char, -(initialShift + index))
-      }
-      return char
-    }).join('')
+  public static demovingShift(arr: string[], initialShift: number): string {
+    const str = arr.join("")
+    return str
+      .split("")
+      .map((char, index) => {
+        if (this.letters.indexOf(char.toLowerCase()) !== -1) {
+          return this.shiftChar(char, -(initialShift + index))
+        }
+        return char
+      })
+      .join("")
   }
 
   private static shiftChar(char: string, shift: number): string {

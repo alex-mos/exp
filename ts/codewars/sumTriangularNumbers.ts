@@ -1,4 +1,4 @@
-export default function sumTriangularNumbers (num: number): number {
+export default function sumTriangularNumbers(num: number): number {
   let result: number[] = []
   let counter: number = 1
   let row: number = 1
@@ -12,7 +12,7 @@ export default function sumTriangularNumbers (num: number): number {
     row++
     result.push(counter)
   }
-  return result.reduce((acc: number, item: number) => acc += item, 0)
+  return result.reduce((acc: number, item: number) => (acc += item), 0)
 }
 
 // export default function sumTriangularNumbers(n:number):number {

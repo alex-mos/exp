@@ -1,17 +1,22 @@
-import convertToRoman from '../convertToRoman'
-import { rot13 } from '../caesarsCipher'
-import { expect } from 'chai'
+import { expect } from "chai"
+import convertToRoman from "../convert-to-roman"
 
-describe('convertToRoman', () => {
-  it('freecodecamp', () => {
+describe("convertToRoman", () => {
+  it("basic", () => {
+    expect(convertToRoman(1)).to.equal("I")
     expect(convertToRoman(2)).to.equal("II")
     expect(convertToRoman(3)).to.equal("III")
     expect(convertToRoman(4)).to.equal("IV")
     expect(convertToRoman(5)).to.equal("V")
     expect(convertToRoman(8)).to.equal("VIII")
     expect(convertToRoman(9)).to.equal("IX")
+    expect(convertToRoman(10)).to.equal("X")
+    expect(convertToRoman(11)).to.equal("XI")
     expect(convertToRoman(12)).to.equal("XII")
+    expect(convertToRoman(15)).to.equal("XV")
     expect(convertToRoman(16)).to.equal("XVI")
+    expect(convertToRoman(19)).to.equal("XIX")
+    expect(convertToRoman(22)).to.equal("XXII")
     expect(convertToRoman(29)).to.equal("XXIX")
     expect(convertToRoman(44)).to.equal("XLIV")
     expect(convertToRoman(45)).to.equal("XLV")
@@ -31,27 +36,5 @@ describe('convertToRoman', () => {
     expect(convertToRoman(1023)).to.equal("MXXIII")
     expect(convertToRoman(2014)).to.equal("MMXIV")
     expect(convertToRoman(3999)).to.equal("MMMCMXCIX")
-  })
-  it('codewars', () => {
-    expect(convertToRoman(1)).to.equal('I')
-    expect(convertToRoman(2)).to.equal('II')
-    expect(convertToRoman(3)).to.equal('III')
-    expect(convertToRoman(4)).to.equal('IV')
-    expect(convertToRoman(5)).to.equal('V')
-    expect(convertToRoman(9)).to.equal('IX')
-    expect(convertToRoman(10)).to.equal('X')
-    expect(convertToRoman(11)).to.equal('XI')
-    expect(convertToRoman(19)).to.equal('XIX')
-    expect(convertToRoman(22)).to.equal('XXII')
-    expect(convertToRoman(15)).to.equal('XV')
-  })
-})
-
-describe('caesarsCipher rot13', () => {
-  it('freecodecamp', () => {
-    expect(rot13("SERR PBQR PNZC")).to.equal('FREE CODE CAMP')
-    expect(rot13("SERR CVMMN!")).to.equal('FREE PIZZA!')
-    expect(rot13("SERR YBIR?")).to.equal('FREE LOVE?')
-    expect(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.")).to.equal('THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.')
   })
 })

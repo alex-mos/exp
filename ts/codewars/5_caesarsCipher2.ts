@@ -1,8 +1,35 @@
 export class G964 {
-  private static letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+  private static letters = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z"
+  ]
 
-  public static encodeStr (str: string, shift: number): string[] {
-    const shiftedArr = str.split('').map(char => {
+  public static encodeStr(str: string, shift: number): string[] {
+    const shiftedArr = str.split("").map((char) => {
       if (this.letters.indexOf(char.toLowerCase()) !== -1) {
         return this.shiftChar(char, shift)
       }
@@ -10,22 +37,25 @@ export class G964 {
     })
     shiftedArr.unshift(this.shiftChar(str[0].toLowerCase(), shift))
     shiftedArr.unshift(str[0].toLowerCase())
-    return this.split(shiftedArr.join(''))
+    return this.split(shiftedArr.join(""))
   }
 
-  public static decode (arr: string[]): string {
-    let str = arr.join('')
+  public static decode(arr: string[]): string {
+    let str = arr.join("")
     const firstCharIndex = this.letters.indexOf(str[0])
     const shiftedCharIndex = this.letters.indexOf(str[1])
     const shift = shiftedCharIndex - firstCharIndex
     str = str.slice(2)
 
-    return str.split('').map(char => {
-      if (this.letters.indexOf(char.toLowerCase()) !== -1) {
-        return this.shiftChar(char, -shift)
-      }
-      return char
-    }).join('')
+    return str
+      .split("")
+      .map((char) => {
+        if (this.letters.indexOf(char.toLowerCase()) !== -1) {
+          return this.shiftChar(char, -shift)
+        }
+        return char
+      })
+      .join("")
   }
 
   private static shiftChar(char: string, shift: number): string {

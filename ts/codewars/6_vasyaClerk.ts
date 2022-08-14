@@ -1,7 +1,7 @@
 type banknote = 25 | 50 | 100
 type cashRegister = banknote[]
 type queue = banknote[]
-type answer = 'YES' | 'NO'
+type answer = "YES" | "NO"
 
 const TICKET_PRICE = 25
 
@@ -12,22 +12,28 @@ export function tickets(queue: queue): answer {
   for (let it of queue) {
     const cashRegisterWithoutChange = removeChangeFromRegister(it, cashRegister)
     if (cashRegisterWithoutChange === false) {
-      return 'NO'
+      return "NO"
     } else {
       cashRegister = cashRegisterWithoutChange
     }
-    cashRegister = putBanknoteInCashRegister(it, cashRegister)  
+    cashRegister = putBanknoteInCashRegister(it, cashRegister)
   }
-  return 'YES'
+  return "YES"
 }
 
 // положить купюру в массив банкнот и отсортировать его по убыванию
-export function putBanknoteInCashRegister(banknote: banknote, register: cashRegister): cashRegister {
+export function putBanknoteInCashRegister(
+  banknote: banknote,
+  register: cashRegister
+): cashRegister {
   return register.concat(banknote).sort((a, b) => b - a)
 }
 
 // взять сдачу из кассы или вернуть false, если нет сдачи
-export function removeChangeFromRegister(banknote: banknote, register: cashRegister): cashRegister | false {
+export function removeChangeFromRegister(
+  banknote: banknote,
+  register: cashRegister
+): cashRegister | false {
   const result: cashRegister = []
   let change = banknote - TICKET_PRICE
   register.forEach((it: banknote) => {
