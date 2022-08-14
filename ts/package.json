@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "prettier": "./node_modules/.bin/prettier -w .",
+    "build": "./node_modules/.bin/tsc --project tsconfig.json",
+    "prettier": "./node_modules/.bin/prettier --write .",
     "test": "./node_modules/.bin/jest",
     "test:watch": "./node_modules/.bin/jest --watch"
   },
@@ -20,6 +21,6 @@
     "jest": "^24.9.0",
     "prettier": "^2.7.1",
     "ts-jest": "^24.1.0",
-    "typescript": "^3.6.4"
+    "typescript": "^4.7.4"
   }
 }

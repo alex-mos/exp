@@ -2,7 +2,8 @@
 // Если числа равны, вернуть одно из них.
 // Числа могут идти не по порядку.
 export function getSum(a: number, b: number): number {
-  const [min, max] = [a, b].sort()
+  const min = Math.min(a, b)
+  const max = Math.max(a, b)
   let result: number = 0
   for (let i = min; i <= max; i++) {
     result += i
