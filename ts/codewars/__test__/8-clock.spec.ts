@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { past } from "../8_clock"
+import { past } from "../8-clock"
 
 describe("8_clock", () => {
   it("zero", () => {

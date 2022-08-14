@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { tickets, putBanknoteInCashRegister, removeChangeFromRegister } from "../6_vasyaClerk"
+import { tickets, putBanknoteInCashRegister, removeChangeFromRegister } from "../6-vasya-clerk"
 
 describe("6_vasyaClerk", () => {
   it("putBanknoteInCashRegister", () => {

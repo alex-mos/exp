@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { G964 } from "../5_caesarsCipher2"
+import { G964 } from "../5-caesars-cipher-2"
 
 describe("caesarsCipher G964", () => {
   it("encodeStr, decode by 1", () => {

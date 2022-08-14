@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import { paperwork } from "../8_paperwork"
+import { paperwork } from "../8-paperwork"
 
 describe("8_paperwork", () => {
   it("5 * 5", () => {

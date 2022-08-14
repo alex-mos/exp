@@ -1,5 +1,5 @@
 import { expect } from "chai"
-import { mazeRunner } from "../6_mazeRunner"
+import { mazeRunner } from "../6-maze-runner"
 
 describe("mazeRunner", function () {
   it("first maze", function () {
