@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>scared egg</title>
+  <style>
+  .grid {
+    padding-left: 0;
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    cursor: default;
+  }
+
+  .grid li {
+    font-size: 40px;
+  }
+
+  .scared:hover {
+    animation-name: tremble;
+    animation-duration: 700ms;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes tremble {
+    0% {transform: translateX(0px);}
+    10% {transform: translateX(2px);}
+    20% {transform: translateX(-2px);}
+    30% {transform: translateX(4px);}
+    40% {transform: translateX(-4px);}
+    50% {transform: translateX(4px);}
+    60% {transform: translateX(-4px);}
+    70% {transform: translateX(2px);}
+    80% {transform: translateX(-2px);}
+    90% {transform: translateX(0px);}
+    100% {transform: translateX(0px);}
+  }
+  </style>
+</head>
+<body>
+
+<ul class="grid">
+  <li>🍓</li>
+  <li>🍔</li>
+  <li>🥛</li>
+  <li class="scared">🥚</li>
+  <li>🍣</li>
+  <li>🍗</li>
+  <li>🧈</li>
+  <li>🥣</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "esbuild-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bundle.js",
+  "scripts": {
+    "build": "npx esbuild index.js --format=esm --bundle --outfile=bundle.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
