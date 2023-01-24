@@ -9,3 +9,13 @@
 .green {
   color: green;
 }
+
+.dark-theme {
+  background-color: #333;
+  color: #ddd;
+}
+
+.light-theme {
+  background-color: #ddd;
+  color: #333;
+}
