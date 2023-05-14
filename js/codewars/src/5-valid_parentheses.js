@@ -8,7 +8,6 @@ function validParentheses(parens) {
   return count === 0
 }
 
-assert.equal(validParentheses('()'), true)
-assert.equal(validParentheses(')(()))'), false)
-assert.equal(validParentheses('('), false)
-assert.equal(validParentheses('(())((()())())'), true)
+module.exports = {
+  validParentheses
+}

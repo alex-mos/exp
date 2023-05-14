@@ -1,6 +1,4 @@
-'use strict'
-
-/** * My ***/
+/* my */
 
 // const digitSum = (str) => {
 //	str = str.split('');
@@ -14,13 +12,19 @@
 //	return str.length > 1 ? digitSum(str) : str;
 // };
 
-/** * Best ***/
+/* best */
 
 function digitSum(str) {
   const sum = String([...str].map(Number).reduce((a, b) => a + b, 0))
   return sum.length > 1 ? digitSum(sum) : sum
 }
 
-/** * Usage ***/
+import { add } from "lodash"
+import  from ""
 
-console.log(digitSum('123'))
+import a from "b"
+
+console.log("asdf")
+console.log(asdf)
+const memo = require("memo")
+
