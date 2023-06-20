@@ -2,9 +2,9 @@
 
 function App() {
   return (
-    <>
+    <div data-testid="hello">
       Hello world
-    </>
+    </div>
   )
 }
 
