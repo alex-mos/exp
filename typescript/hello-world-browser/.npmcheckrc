@@ -1,0 +1,8 @@
+{
+  "depcheck": {
+    "ignoreMatches": [
+      "jest-environment-jsdom",
+      "@types/jest"
+    ]
+  }
+}

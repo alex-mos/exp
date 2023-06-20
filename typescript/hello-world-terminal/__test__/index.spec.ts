@@ -1,7 +1,7 @@
-import { greeting } from "../src/console"
+import { greeting } from "../src/index"
 
 describe("console", () => {
   it("should have correct greeting string", () => {
-    expect(greeting).toBe("Hello, world")
+    expect(greeting).toBe("Hello world")
   })
 })

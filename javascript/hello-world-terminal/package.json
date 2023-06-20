@@ -1,15 +1,17 @@
 {
-  "name": "hello-world-terminal",
+  "name": "hello-world-javascript-terminal",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "npx jest"
+    "test": "npx jest",
+    "check": "npx npm-check",
+    "upgrade": "npx npm-check -u"
   },
-  "author": "",
+  "author": "alexander.mospan@gmail.com",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.5.0"
+    "jest": "29.5.0"
   }
 }

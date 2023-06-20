@@ -1,4 +1,4 @@
-const { greeting } = require("../index")
+const { greeting } = require("../src/index")
 
 describe("index", () => {
   it("greeting string is valid", () => {
