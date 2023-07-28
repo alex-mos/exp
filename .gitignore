@@ -1,3 +1,8 @@
+# ignore files without extensions (executable binary files)
+*
+!/**/
+!*.*
+#
 .idea/
 .DS_Store
 node_modules
@@ -6,5 +11,6 @@ temp.js
 dist/
 uploads/
 tabtracker.sqlite
+*.o
 *.out
 scratch.*
