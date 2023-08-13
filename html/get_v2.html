@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>collectionLive vs collectionDead</title>
+</head>
+<body>
+
+<div id="box">
+  <div class="pack" style="width:100px;height:100px;background:red"></div>
+  <div class="pack" style="width:100px;height:100px;background:red"></div>
+  <div class="pack" style="width:100px;height:100px;background:red"></div>
+  <div class="pack" style="width:100px;height:100px;background:red"></div>
+</div>
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed')
+
+    const collectionDead = document.querySelectorAll(".pack")
+    const collectionLive = document.getElementsByClassName("pack")
+
+    collectionDead[1].style.width = "150px"
+    collectionDead[1].style.backgroundColor = "green"
+    collectionDead[1].dataset.test = "box"
+
+    console.log("collectionDead[1].style.width")
+    console.log(collectionDead[1].style.width)
+    console.log("collectionDead[1].style.backgroundColor")
+    console.log(collectionDead[1].style.backgroundColor)
+    console.log("collectionDead[1].dataset.test")
+    console.log(collectionDead[1].dataset.test)
+
+    console.log("---")
+
+    console.log("collectionLive[1].style.width")
+    console.log(collectionLive[1].style.width)
+    console.log("collectionLive[1].style.backgroundColor")
+    console.log(collectionLive[1].style.backgroundColor)
+    console.log("collectionLive[1].dataset.test")
+    console.log(collectionLive[1].dataset.test)
+  });
+</script>
+
+</body>
+</html>
