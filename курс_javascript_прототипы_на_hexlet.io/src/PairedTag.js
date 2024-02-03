@@ -1,7 +1,8 @@
-export default class PairedTag {
+import Node from "./Node"
+
+export default class PairedTag extends Node {
   constructor(name, attributes, body, children) {
-    this.name = name,
-    this.attributes = attributes
+    super(name, attributes)
     this.body = body
     if (children.length) {
       this.children = children
@@ -9,17 +10,6 @@ export default class PairedTag {
   }
 
   toString() {
-    return `<${this.name}${this.renderAttributes(this.attributes)}>${
-          this.body
-        }${this.children ? this.children.map(node => node.toString()).join("") : ""}</${this.name}>`
-  }
-
-  renderAttributes(attributes) {
-    let result = ""
-    for (const [key, value] of Object.entries(attributes)) {
-      result += ` ${key}="${value}"`
-    }
-
-    return result
+    return `<${this.name}${this.renderAttributes(this.attributes)}>${this.body}${this.children ? this.children.map(node => node.toString()).join("") : ""}</${this.name}>`
   }
 }

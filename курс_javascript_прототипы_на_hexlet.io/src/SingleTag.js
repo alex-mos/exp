@@ -1,19 +1,11 @@
-export default class SingleTag {
+import Node from "./Node"
+
+export default class SingleTag extends Node {
   constructor(name, attributes) {
-    this.name = name,
-    this.attributes = attributes || {}
+    super(name, attributes)
   }
 
   toString() {
-    return `<${this.name}${this.renderAttributes(this.attributes)}>`
-  }
-
-  renderAttributes(attributes) {
-    let result = ""
-    for (const [key, value] of Object.entries(attributes)) {
-      result += ` ${key}="${value}"`
-    }
-
-    return result
+    return `<${this.name}${this.renderAttributes(this.attributes || {})}>`
   }
 }
