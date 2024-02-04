@@ -1,11 +1,9 @@
 import Node from "./Node"
 
-export default class SingleTag extends Node {
-  constructor(name, attributes) {
-    super(name, attributes)
-  }
+export default function SingleTag(name, attributes) {
+  Node.apply(this, [name, attributes])
 
-  toString() {
+  this.toString = () => {
     return `<${this.name}${this.renderAttributes(this.attributes || {})}>`
   }
 }

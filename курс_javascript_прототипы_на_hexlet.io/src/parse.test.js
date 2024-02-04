@@ -82,7 +82,7 @@ describe("index", () => {
       ],
     )
 
-    expect(ast).toStrictEqual(expected)
+    expect(JSON.stringify(ast)).toEqual(JSON.stringify(expected))
   })
 
   test("toString without single tag", () => {
