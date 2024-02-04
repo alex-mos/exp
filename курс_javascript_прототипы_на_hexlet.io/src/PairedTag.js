@@ -1,13 +1,12 @@
-import Node from "./Node"
+import Node from './Node'
 
-export default function PairedTag(name, attributes, body, children) {
+export default function PairedTag(name, attributes, body = '', children = []) {
   Node.apply(this, [name, attributes])
   this.body = body
-  if (children.length) {
-    this.children = children
-  }
+  this.children = children
+}
 
-  this.toString = () => {
-    return `<${this.name}${this.renderAttributes(this.attributes)}>${this.body}${this.children ? this.children.map(node => node.toString()).join("") : ""}</${this.name}>`
-  }
+PairedTag.prototype.toString = function toString() {
+  const value = this.children.length > 0 ? this.children.join('') : this.body
+  return `<${this.name}${this.getAttributesAsLine()}>${value}</${this.name}>`
 }

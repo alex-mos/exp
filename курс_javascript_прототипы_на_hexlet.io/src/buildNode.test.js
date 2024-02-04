@@ -20,6 +20,6 @@ describe("buildNode", () => {
   test("empty children", () => {
     const tag = parse(["div", {}, "", []])
 
-    expect(JSON.stringify(tag)).toBe('{"name":"div","attributes":{},"body":""}')
+    expect(JSON.stringify(tag)).toBe('{"name":"div","attributes":{},"body":"","children":[]}')
   })
 })

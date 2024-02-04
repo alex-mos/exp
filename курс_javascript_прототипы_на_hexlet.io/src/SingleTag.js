@@ -1,9 +1,9 @@
-import Node from "./Node"
+import Node from './Node'
 
 export default function SingleTag(name, attributes) {
   Node.apply(this, [name, attributes])
+}
 
-  this.toString = () => {
-    return `<${this.name}${this.renderAttributes(this.attributes || {})}>`
-  }
+SingleTag.prototype.toString = function toString() {
+  return `<${this.name}${this.getAttributesAsLine()}>`
 }
