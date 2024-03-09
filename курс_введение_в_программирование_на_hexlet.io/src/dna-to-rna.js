@@ -1,4 +1,4 @@
-function dnaToRna(str) {
+export function dnaToRna(str) {
   let result = ''
   for (const letter of str) {
     switch(letter) {
@@ -20,6 +20,3 @@ function dnaToRna(str) {
   }
   return result
 }
-
-
-module.exports = dnaToRna

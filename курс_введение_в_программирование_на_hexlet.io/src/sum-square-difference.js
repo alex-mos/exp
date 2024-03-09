@@ -1,4 +1,4 @@
-function sumSquareDifference(num) {
+export function sumSquareDifference(num) {
   return squareOfSum(num) - sumOfSquares(num)
 }
 
@@ -21,5 +21,3 @@ function sumOfSquares(num) {
 
   return sumOfSquares
 }
-
-module.exports = sumSquareDifference

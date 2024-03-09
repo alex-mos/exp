@@ -1,4 +1,4 @@
-const dnaToRna = require('./dna-to-rna')
+import { dnaToRna } from "./dna-to-rna"
 
 describe('dnaToRna', () => {
 	test('ACGTGGTCTTAA', () => {

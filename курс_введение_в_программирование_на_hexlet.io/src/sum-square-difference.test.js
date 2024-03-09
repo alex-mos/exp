@@ -1,4 +1,4 @@
-const sumSquareDifference = require("./sum-square-difference")
+import { sumSquareDifference } from "./sum-square-difference"
 
 describe("sumSquareDifference", () => {
   test("10", () => {
