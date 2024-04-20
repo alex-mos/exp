@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>pow-onion</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+    }
+    canvas {
+      margin-top: 40px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="lines" width="500" height="500"></canvas>
+
+<script defer>
+  window.addEventListener("load", () => {
+    const canvas = document.getElementById("lines")
+    const ctx = canvas.getContext("2d")
+
+    main()
+
+    function main() {
+      drawLines()
+    }
+
+    function drawLines() {
+      for (let power = 1; power <= 7; power = power + 0.5) {
+        drawLine(power)
+        drawLine(1/power)
+      }
+    }
+
+    function drawLine(power) {
+      for (let i = 0; i <= 500; i = i + 1) {
+        const x = i
+        const y = Math.pow(i, power) / Math.pow(500, power - 1)
+        drawPoint(x, y)
+      }
+    }
+
+    function drawPoint(x, y) {
+      ctx.fillRect(x, y, 1, 1)
+    }
+  })
+</script>
+
+</body>
+</html>
