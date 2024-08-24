@@ -1,0 +1,5 @@
+-Wall
+-std=c99
+-I/opt/homebrew/include
+-L/opt/homebrew/lib
+-lSDL2
