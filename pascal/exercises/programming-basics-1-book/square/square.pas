@@ -1,7 +1,7 @@
 program square;
 
 var
-  x: byte = 0;
+  x: integer = 0;
 
 begin
   read(x);

@@ -4,10 +4,13 @@ program loops;
 var
   i: integer;
   j: integer = 0;
-  length: integer = 24;
+  length: integer;
 
 begin
-  for i := 0 to length do
+  writeln('Enter the length of the diagonal');
+  read(length);
+
+  for i := 0 to length - 1 do
     begin
       while j < i do
         begin

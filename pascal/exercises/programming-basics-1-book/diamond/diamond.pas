@@ -1,58 +1,37 @@
 program diamond;
 
+procedure PrintSpaces(count: integer);
 var
-  size: integer;   // ширина и высота ромба
-  center: integer; // половина ширины ромба с округлением в большую сторону
-  i: integer;  // счётчик строк ромба
-  j: integer;
-
+  i: integer;
 begin
-  writeln('enter the size of a diamond');
-  read(size);
+  for i := 1 to count do
+    write(' ');
+end;
 
-  // Если число чётное, возвращаем ошибку и прекращаем выполнение программы.
-  if (size mod 2 = 0) or (size < 0) then
-    begin
-      writeln('error: only positive odd numbers accepted.');
-      halt(1);
-    end;
+procedure PrintLineOfDiamond(line, half: integer);
+begin
+  PrintSpaces(half + 1 - line);
+  write('*');
+  if line > 1 then
+  begin
+    PrintSpaces(2 * line - 3);
+    write('*');
+  end;
+  writeln;
+end;
 
-  // Находим центр нечётного числа.
-  center := size div 2 + 1;
-  
-  // Рисуем верхнюю часть ромба до середины включительно.
-  i := 0;
+var
+  height: integer;
+  half: integer;
+  line: integer;
+begin
   repeat
-
-    // todo: вынести этот блок в функцию writeLine
-    begin
-      for j := 1 to size do
-        begin
-          if (j = (center - i)) or (j = (center + i)) and (i > 0) then
-            write('*')
-          else
-            write(' ')
-        end;
-      writeln();
-      i := i + 1;
-    end
-    // / todo: вынести этот блок в функцию writeLine
-
-  until i = center;
-
-  // Рисуем нижнюю часть ромба.
-  for i := center - 2 downto 0 do
-
-    // todo: вынести этот блок в функцию writeLine
-    begin
-      for j := 1 to size do
-        begin
-          if (j = (center - i)) or (j = (center + i)) and (i > 0) then
-            write('*')
-          else
-            write(' ')
-        end;
-      writeln();
-    end;
-    // / todo: вынести этот блок в функцию writeLine
+    writeln('Enter the height of a diamond (positive odd):');
+    readln(height);
+  until (height > 0) and (height mod 2 = 1);
+  half := height div 2;
+  for line := 1 to half + 1 do
+    PrintLineOfDiamond(line, half);
+  for line := half downto 1 do
+    PrintLineOfDiamond(line, half);
 end.
