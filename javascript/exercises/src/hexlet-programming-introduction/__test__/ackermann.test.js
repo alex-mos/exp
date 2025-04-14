@@ -1,4 +1,4 @@
-import { ackermann } from '../ackermann';
+import { ackermann } from "../ackermann"
 
 describe("ackermann", () => {
   test("main", () => {

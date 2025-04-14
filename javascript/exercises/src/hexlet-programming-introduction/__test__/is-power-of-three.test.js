@@ -1,5 +1,5 @@
 import { isPowerOfThree } from "../is-power-of-three"
-  
+
 describe("is-power-of-three", () => {
   test("main", () => {
     expect(isPowerOfThree(1)).toBe(true) // (3^0)

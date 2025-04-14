@@ -1,4 +1,4 @@
-Object.prototype.getValues = function(...args) {
+Object.prototype.getValues = function (...args) {
   let values = []
 
   if (args.length > 1) {
@@ -21,7 +21,7 @@ Object.prototype.getValues = function(...args) {
 const getValuesByKeysArray = (obj, keys) => {
   const values = []
 
-  keys.forEach(key => {
+  keys.forEach((key) => {
     if (obj[key]) {
       values.push(obj[key])
     }

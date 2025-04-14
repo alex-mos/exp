@@ -1,3 +1,1 @@
-export function withoutTwoZeros(zeros, ones) {
-
-}
+export function withoutTwoZeros(zeros, ones) {}
