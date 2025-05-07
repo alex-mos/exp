@@ -3,7 +3,7 @@ import { factorialRecursion } from "../factorial"
 import { factorial2 } from "../factorial"
 import { factorial3 } from "../factorial"
 
-describe("factorialCycle", () => {
+describe("factorial", () => {
   test("factorialCycle", () => {
     expect(factorialCycle(0)).toBe(1)
     expect(factorialCycle(1)).toBe(1)

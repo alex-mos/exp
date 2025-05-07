@@ -1,6 +1,7 @@
 /*
-  Bracket sequence with single bracket type
+  Validate bracket sequence with multiple bracket types — ()
 */
+
 export function isBracketSequenceValid(bracketSequence) {
   let count = 0
   let result = true

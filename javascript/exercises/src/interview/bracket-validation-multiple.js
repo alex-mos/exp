@@ -1,6 +1,7 @@
 /*
-  Bracket sequence with multiple bracket type
+  Validate bracket sequence with multiple bracket types — [<{()}>]
 */
+
 export function isBracketSequenceValid(bracketSequence) {
   let openingBrackets = {
     "(": ")",
@@ -8,12 +9,14 @@ export function isBracketSequenceValid(bracketSequence) {
     "{": "}",
     "<": ">",
   }
+
   let closingBrackets = {
     ")": "(",
     "]": "[",
     "}": "{",
     ">": "<",
   }
+
   let stack = []
 
   for (let bracket of bracketSequence) {

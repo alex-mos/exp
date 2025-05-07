@@ -1,7 +1,7 @@
 import { isBracketSequenceValid } from "../bracket-validation"
 
 describe("isBracketSequenceValid", () => {
-  test("basic test", () => {
+  test("main", () => {
     expect(isBracketSequenceValid("()")).toBe(true)
     expect(isBracketSequenceValid("()()")).toBe(true)
     expect(isBracketSequenceValid("(()())")).toBe(true)

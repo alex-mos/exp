@@ -5,7 +5,7 @@
 import { jQuery } from "../jquery-custom"
 
 describe("jquery-custom", () => {
-  test("basic", () => {
+  test("main", () => {
     document.body.innerHTML = '<div><ul class="js-node"></ul></div>'
 
     const node = jQuery(".js-node")
