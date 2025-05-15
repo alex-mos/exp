@@ -1,7 +1,0 @@
-{
-  "depcheck": {
-    "ignoreMatches": [
-      "@types/jest"
-    ]
-  }
-}

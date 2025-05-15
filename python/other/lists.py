@@ -1,1 +1,0 @@
-print filter(lambda x: x % 3 == 0, range(30))

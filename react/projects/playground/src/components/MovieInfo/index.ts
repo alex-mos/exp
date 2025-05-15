@@ -1,1 +1,0 @@
-export { MovieInfo } from "./MovieInfo"
