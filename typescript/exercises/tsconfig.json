@@ -3,7 +3,7 @@
     "module": "es6",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "target": "es6",
+    "target": "es2021",
     "rootDir": "./src/",
     "outDir": "./public/"
   },
