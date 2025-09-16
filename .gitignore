@@ -2,6 +2,7 @@
 *
 !/**/
 !*.*
+!makefile
 #
 .idea/
 .DS_Store
