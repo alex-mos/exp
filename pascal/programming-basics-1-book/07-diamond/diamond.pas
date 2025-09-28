@@ -24,7 +24,7 @@ begin
         if (j = center - i + 1) or (j = size - center + i) then
           write('*')
         else
-          write(' ');
+          write(' ')
       end;
       writeln('');
     end;
